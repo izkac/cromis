@@ -3,37 +3,163 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cromis — software for the next era</title>
-<meta name="description" content="Cromis builds software and development solutions for the next era.">
+<title>Cromis — software that respects the machine it runs on</title>
+<meta name="description" content="Cromis builds desktop software and development tools: small, native where it matters, and quiet about it. Makers of Alcove, the Windows desktop organizer.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Cromis — software that respects the machine it runs on">
+<meta property="og:description" content="Desktop software and development tools. Makers of Alcove, the Windows desktop organizer.">
+<meta property="og:type" content="website">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="mark">Cromis</div>
-    <h1>Software and development solutions for the next era.</h1>
-    <p class="lede">We build tools that respect the machine they run on and the person
-    sitting in front of it — fast, native where it matters, and quiet about it.</p>
-  </header>
 
-  <h2>What we make</h2>
-  <a class="card" href="alcove/">
-    <div class="tag">Windows desktop</div>
-    <h3>Alcove</h3>
-    <p>Give every icon a home. A desktop organizer that turns the loose grid of icons
-    into named drawers you open one at a time.</p>
-  </a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#0b1220"/>
+        <path d="M7 26V16a9 9 0 0 1 18 0v10" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="9" y="22" width="14" height="3.5" rx="1" fill="#67e8f9"/>
+      </svg>
+      Cromis
+    </a>
+    <nav>
+      <a href="alcove/">Alcove</a>
+      <a href="#helm" class="hide-sm">Helm</a>
+      <a href="#principles" class="hide-sm">How we work</a>
+      <a href="mailto:hello@cromis.org">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <h2>How we work</h2>
-  <ul>
-    <li><strong>Native first.</strong> If the platform already does it, we use the platform.</li>
-    <li><strong>Small surfaces.</strong> Fewer features, each of them finished.</li>
-    <li><strong>Your files stay yours.</strong> No accounts to use what you installed, nothing copied or moved behind your back.</li>
-  </ul>
+<main>
 
-  <footer>
-    Cromis · <a href="mailto:hello@cromis.org">hello@cromis.org</a>
-  </footer>
-</div>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Cromis</p>
+      <h1>Software that respects<br>the machine it runs on.</h1>
+      <p class="lede mt">We build desktop software and development tools for people who notice
+      the difference — fast, native where it matters, finished rather than featured, and quiet
+      about it. No accounts to use what you installed. No telemetry. Your files stay yours.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="alcove/">Meet Alcove →</a>
+        <a class="btn" href="#principles">How we work</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <p class="kicker">What we make</p>
+      <h2>Two products. One idea.</h2>
+      <p class="sub">Every tool we ship does one job completely, on the machine in front of you.</p>
+
+      <div class="grid grid-2" style="margin-top:32px; align-items:start;">
+
+        <a class="card card-lg" href="alcove/">
+          <span class="tag">Windows desktop · In development</span>
+          <h3>Alcove</h3>
+          <p>Give every icon a home. Alcove replaces the loose grid of desktop icons with
+          named drawers that open one at a time, spread into a full canvas when they grow,
+          and keep their own arrangement per monitor. It reads your real Desktop and opens
+          files with the real Windows shell — nothing is copied or moved unless you move it.</p>
+          <img class="shot" src="alcove/img/panel.webp" width="1240" height="550"
+               loading="lazy" decoding="async" style="margin-top:22px"
+               alt="An Alcove drawer open on the desktop, showing seven documents with their real Windows file icons.">
+          <span class="arrow">See what Alcove does →</span>
+        </a>
+
+        <div>
+          <div class="card card-lg" id="helm">
+            <span class="tag wip">In development</span>
+            <h3>Helm</h3>
+            <p>The next Cromis tool. Same rules as Alcove: native, small, no account,
+            nothing phoning home. Details when there is something real to show —
+            we would rather announce it late than describe it early.</p>
+            <p style="margin-top:16px"><a href="mailto:hello@cromis.org?subject=Tell%20me%20when%20Helm%20lands">Tell me when Helm lands →</a></p>
+          </div>
+
+          <div class="card" style="margin-top:16px">
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>
+              </svg>
+            </div>
+            <h3>Contract work</h3>
+            <p>Desktop, systems and tooling work — Rust, TypeScript, Delphi, and the awkward
+            Windows integration nobody else wants to touch.
+            <a href="mailto:hello@cromis.org">hello@cromis.org</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="wrap">
+      <p class="kicker">How we work</p>
+      <h2>Fewer things, finished.</h2>
+      <p class="sub">Three rules we have not found a good reason to break.</p>
+
+      <div class="grid grid-3" style="margin-top:32px">
+        <div class="card">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 9-12h-7z"/>
+            </svg>
+          </div>
+          <h3>Native first</h3>
+          <p>If the platform already does it, we use the platform. Real shell associations,
+          the real Recycle Bin, the real taskbar. We organize what is there instead of
+          replacing it with a lookalike.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8"/>
+            </svg>
+          </div>
+          <h3>Small surfaces</h3>
+          <p>Fewer features, each of them finished. Nothing half-built shipped behind a flag,
+          nothing kept because removing it would be awkward.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            </svg>
+          </div>
+          <h3>Your files stay yours</h3>
+          <p>No account needed to use what you installed. No telemetry, no cloud round-trip,
+          nothing copied or moved behind your back. Our software works with the network
+          unplugged.</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:36px">
+        <h3>Buy the software, not a subscription to it.</h3>
+        <p class="small" style="margin:8px 0 0; max-width:70ch">Cromis software is complete without a licence
+        key — every feature, every monitor, no time limit, no nag at startup. A licence buys
+        <strong>updates</strong> for the period it covers. When it lapses, your copy keeps working
+        forever, in full; you simply stop being offered newer builds. There is no activation
+        server, nothing to revoke, and no check that can fail and lock you out.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Cromis</span>
+    <span class="links">
+      <a href="alcove/">Alcove</a>
+      <a href="#helm">Helm</a>
+      <a href="mailto:hello@cromis.org">hello@cromis.org</a>
+    </span>
+  </div>
+</footer>
+
 </body>
 </html>
