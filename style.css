@@ -1,6 +1,9 @@
 /* Cromis — one stylesheet, both pages. */
 
+/* theme.js resolves the theme (stored choice, else the OS) and stamps
+   data-theme on <html> before paint. Dark is the fallback with no script. */
 :root {
+  color-scheme: dark;
   --bg:      #0b0f17;
   --panel:   #111726;
   --panel-2: #161d2e;
@@ -14,21 +17,20 @@
   --glow: radial-gradient(60% 60% at 50% 0%, rgba(167,139,250,.20), transparent 70%);
   --shadow: 0 24px 70px -20px rgba(0,0,0,.75);
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg:      #fbfcfe;
-    --panel:   #ffffff;
-    --panel-2: #f3f6fb;
-    --text:    #0e1420;
-    --muted:   #59637a;
-    --line:    #e3e8f2;
-    --line-2:  #d3dae8;
-    --accent:  #6d3fe0;
-    --accent-2:#0e7490;
-    --on-accent: #ffffff;
-    --glow: radial-gradient(60% 60% at 50% 0%, rgba(109,63,224,.10), transparent 70%);
-    --shadow: 0 24px 60px -24px rgba(16,24,48,.28);
-  }
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:      #fbfcfe;
+  --panel:   #ffffff;
+  --panel-2: #f3f6fb;
+  --text:    #0e1420;
+  --muted:   #59637a;
+  --line:    #e3e8f2;
+  --line-2:  #d3dae8;
+  --accent:  #6d3fe0;
+  --accent-2:#0e7490;
+  --on-accent: #ffffff;
+  --glow: radial-gradient(60% 60% at 50% 0%, rgba(109,63,224,.10), transparent 70%);
+  --shadow: 0 24px 60px -24px rgba(16,24,48,.28);
 }
 
 * { box-sizing: border-box; }
@@ -90,6 +92,15 @@ strong { font-weight: 620; }
 .nav nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
 .nav nav a:hover, .nav nav a[aria-current] { color: var(--text); }
 @media (max-width: 520px) { .nav nav a.hide-sm { display: none; } }
+.theme {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; padding: 0; margin-left: -4px;
+  border: 1px solid var(--line); border-radius: 9px;
+  background: var(--panel); color: var(--muted); cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.theme:hover { color: var(--text); border-color: var(--accent); }
+.theme svg { width: 17px; height: 17px; display: block; }
 
 /* ---------- hero ---------- */
 .hero { position: relative; padding: 84px 0 64px; overflow: hidden; }

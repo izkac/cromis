@@ -7,6 +7,7 @@
 <meta name="description" content="Alcove is a Windows desktop organizer. Named drawers replace the loose grid of desktop icons — one open at a time, spread into a canvas when they grow, saved per monitor.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
+<script src="../theme.js"></script>
 <meta property="og:title" content="Alcove — give every icon a home">
 <meta property="og:description" content="A Windows desktop organizer. Named drawers instead of a loose grid of icons.">
 <meta property="og:type" content="website">
@@ -28,6 +29,13 @@
       <a href="#features" class="hide-sm">Features</a>
       <a href="#licence" class="hide-sm">Licence</a>
       <a href="#get">Get it</a>
+      <button class="theme" type="button" data-theme-toggle
+              aria-label="Switch between dark and light" title="Switch between dark and light">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/>
+        </svg>
+      </button>
     </nav>
   </div>
 </header>
