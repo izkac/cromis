@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ForgeKit: make the agent finish the job</title>
-<meta name="description" content="ForgeKit installs portable agent skills into the coding agent you already use: Forge, a workflow with mechanical gates, and a thorough code review pipeline. MIT, on npm, seven harnesses.">
+<meta name="description" content="ForgeKit installs portable agent skills into the coding agent you already use: Forge, a workflow with mechanical gates, executed e2e acceptance, a cross-project session fleet and a durable findings ledger. MIT, on npm.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
 <script src="../theme.js"></script>
@@ -28,6 +28,7 @@
     <nav aria-label="Site">
       <a href="./" aria-current="page">ForgeKit</a>
       <a href="#pipeline" class="hide-sm">Workflow</a>
+      <a href="#fleet" class="hide-sm">Fleet</a>
       <a href="#licence" class="hide-sm">Licence</a>
       <a href="#get">Install</a>
       <button class="theme" type="button" data-theme-toggle
@@ -55,7 +56,10 @@
       request into a tracked change with a gate at every phase, and <strong>thorough code
       review</strong>, a review pipeline you invoke on purpose. The gates are mechanical rather
       than polite: a session cannot reach <em>done</em> while a test is stubbed, a capability is
-      unwired, or acceptance was never actually executed.</p>
+      unwired, or acceptance was never actually executed &mdash; through a harness Forge will
+      build with you if the project has not got one. What a session learns outlives it: a
+      findings ledger that belongs to the project, and one table for every session running
+      anywhere on the machine.</p>
       <dl class="facts">
         <div><dt>Package</dt><dd><code>@izkac/forgekit</code> on npm</dd></div>
         <div><dt>Runtime</dt><dd>Node 20 or newer</dd></div>
@@ -87,7 +91,7 @@ plain-language            claude,cursor,codex,copilot,gemini,windsurf,opencode  
       <p class="sec-head">
         <span class="sec-no">01</span>
         <span class="sec-kicker">What it does</span>
-        <span class="sec-tag">3 functions, recorded</span>
+        <span class="sec-tag">4 functions, recorded</span>
       </p>
       <h2>A pipeline, not an atmosphere.</h2>
       <p class="sec-sub">Forge never starts on its own. You ask for it by name, and from that
@@ -160,6 +164,108 @@ finding add|list       Findings ledger</pre>
           </figure>
         </article>
 
+        <article class="entry flip">
+          <div class="entry-text">
+            <p class="entry-no">1.4</p>
+            <h3>It builds the rig it will be judged on</h3>
+            <p class="entry-body">Executed acceptance needs something to execute against, so Forge
+            builds one. <code>/forge:harness</code> explores the project, proposes what to boot,
+            what a probe through the real product looks like, and what a fresh checkout must
+            install first — then waits for your approval, because a harness is committed
+            infrastructure, not session scratch. Once proven it is recorded, and every later
+            session reuses it instead of asking again.</p>
+            <p class="entry-body">The recorded prerequisites matter more than they look. A probe
+            that only ever went green in the agent's own sandbox is not proven; it is the
+            failure you hit on first run. Forge never detects a tool and never installs one — it
+            records what was needed, and when a loop later goes red it names that as the first
+            thing to suspect.</p>
+          </div>
+          <figure class="entry-art">
+            <pre class="term"><i>$</i> <b>forge e2e harness</b>
+No harness recorded. After building one (with operator
+approval), record it:
+  <b>forge e2e harness --set</b> "&lt;what/where&gt;" <b>--start</b> "&lt;command&gt;"
+    <b>--setup</b> "&lt;cmd&gt;"  anything this machine needs that the
+                     repo cannot carry (browsers, drivers,
+                     images, toolchains) — never auto-run
+    <b>--probe</b> "&lt;cmd&gt;"  the command that proves the harness</pre>
+            <figcaption><span class="fig-no">Fig. 5</span>
+            <span>Before there is a harness. Note what Forge will not do for you.</span></figcaption>
+          </figure>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="fleet">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">02</span>
+        <span class="sec-kicker">Across sessions</span>
+        <span class="sec-tag">2 registers, durable</span>
+      </p>
+      <h2>The work outlives the conversation.</h2>
+      <p class="sec-sub">A session ends and its chat window closes. What was learned in it should
+      not close with it, and what is running in the next window over should not be a mystery.</p>
+
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-text">
+            <p class="entry-no">2.1</p>
+            <h3>Every session, every project, one table</h3>
+            <p class="entry-body">Forge sessions register themselves, so
+            <code>forge fleet list</code> shows all of them at once — across projects and across
+            editors, with phase, task count, health and age. <code>watch</code> is the live view,
+            <code>view &lt;session&gt; --transcript 20</code> tails what an agent is actually
+            saying, and <code>send</code> puts a message into a running session, delivered on its
+            next turn. Start two sessions in one project and both agents are warned, so you pick:
+            continue, worktree, or pause one.</p>
+            <p class="entry-body"><code>forge fleet report</code> is the same data read as a
+            trend: grades, review depth, and how often a gate had to be capped.</p>
+          </div>
+          <figure class="entry-art">
+            <pre class="term"><i>$</i> <b>forge fleet report</b>
+Forge fleet — 7 session(s) across 2 project(s) · mean 85
+  · A:3 B:2 C:2
+  <b>capped:</b> 2 session(s) — a cap is a process failure,
+    not a rounding error
+  <b>reviews:</b> 17 dispatched · 4 self-check · 0 rejection
+    round(s) · final independent 1 / self 5</pre>
+            <figcaption><span class="fig-no">Fig. 6</span>
+            <span>The cross-project summary, wrapped to fit. Project names withheld; the
+            arithmetic is real.</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="entry flip">
+          <div class="entry-text">
+            <p class="entry-no">2.2</p>
+            <h3>A ledger, not a report nobody re-reads</h3>
+            <p class="entry-body">Everything noticed in passing and out of scope — the bug in the
+            next module, the shortcut taken on purpose, the idea worth trying — gets filed the day
+            it is seen, with a kind, a severity and an id. Findings can depend on other findings,
+            be resolved with a note, or reopened against the id that was closed too early.</p>
+            <p class="entry-body">The ledger belongs to the project, not the session. Escape
+            hatches taken at a gate land there too, so a waiver stays visible after the
+            conversation that granted it is gone, and <code>forge cleanup</code> prunes finished
+            session scratch while the ledgers survive.</p>
+          </div>
+          <figure class="entry-art">
+            <pre class="term"><i>$</i> <b>forge finding --help</b>
+<b>add</b> "&lt;text&gt;" [--change &lt;slug&gt;] [--depends-on &lt;ids&gt;]
+    --kind bug|debt|tradeoff|idea|process
+    --severity blocker|major|minor|note
+<b>link</b>    &lt;id&gt; --depends-on &lt;ids&gt;
+<b>list</b>    [--json] [--all] [--all-kinds]
+<b>resolve</b> &lt;id&gt; [--note "&lt;text&gt;"]
+<b>reopen</b>  &lt;id&gt; --from &lt;oldId&gt; --note "&lt;text&gt;"</pre>
+            <figcaption><span class="fig-no">Fig. 7</span>
+            <span>The findings register. An observation gets a home the day it is written.</span></figcaption>
+          </figure>
+        </article>
+
       </div>
     </div>
   </section>
@@ -167,7 +273,7 @@ finding add|list       Findings ledger</pre>
   <section class="block band" id="behaviour">
     <div class="wrap">
       <p class="sec-head">
-        <span class="sec-no">02</span>
+        <span class="sec-no">03</span>
         <span class="sec-kicker">Good behaviour</span>
         <span class="sec-tag">Compliance record</span>
       </p>
@@ -193,7 +299,7 @@ finding add|list       Findings ledger</pre>
   <section class="block" id="skills">
     <div class="wrap">
       <p class="sec-head">
-        <span class="sec-no">03</span>
+        <span class="sec-no">04</span>
         <span class="sec-kicker">What gets installed</span>
         <span class="sec-tag">Table 1</span>
       </p>
@@ -222,7 +328,7 @@ finding add|list       Findings ledger</pre>
   <section class="block band" id="licence">
     <div class="wrap">
       <p class="sec-head">
-        <span class="sec-no">04</span>
+        <span class="sec-no">05</span>
         <span class="sec-kicker">Licence</span>
         <span class="sec-tag">MIT</span>
       </p>
@@ -247,7 +353,7 @@ finding add|list       Findings ledger</pre>
   <section class="block" id="get">
     <div class="wrap">
       <p class="sec-head">
-        <span class="sec-no">05</span>
+        <span class="sec-no">06</span>
         <span class="sec-kicker">Install</span>
         <span class="sec-tag">Sheet closes here</span>
       </p>
@@ -265,7 +371,7 @@ finding add|list       Findings ledger</pre>
 or say it outright:
 <i>$</i> <b>forgekit install --skills forge,thorough-code-review --agents claude,cursor</b>
 <i>$</i> <b>cd my-project &amp;&amp; forge init --claude --adr</b></pre>
-        <figcaption><span class="fig-no">Fig. 5</span>
+        <figcaption><span class="fig-no">Fig. 8</span>
         <span>Install globally, then pick. <code>npx @izkac/forgekit install</code> works
         without the global step.</span></figcaption>
       </figure>
