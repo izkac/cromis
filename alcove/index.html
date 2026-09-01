@@ -47,7 +47,7 @@
     <div class="wrap">
       <p class="doc-line">
         <span><span class="doc-no">DOC. 002</span> &nbsp;Alcove / product specification</span>
-        <span>Rev. 2026 &nbsp;·&nbsp; <span class="doc-no">Version 0.1.0</span></span>
+        <span>Rev. 2026 &nbsp;·&nbsp; <span class="doc-no">Version 0.2.0</span></span>
       </p>
       <h1>Give every icon a home.</h1>
       <p class="lede">Your Desktop is where files go to be forgotten. Alcove replaces that
@@ -202,7 +202,7 @@
 
       <div class="cols cols-2">
         <ul class="checks">
-          <li><strong>Real files, real shell.</strong> Alcove reads your actual Desktop folder and opens files with their normal Windows associations.</li>
+          <li><strong>Real files, real shell.</strong> Alcove reads your actual Desktop folder and opens files with their normal Windows associations. The icon you click pulses while it opens, so a slow launch still looks like it started.</li>
           <li><strong>A drawer can mirror a real folder.</strong> Point one at Downloads or a project directory and it shows that folder's live contents: icon, list and details views, sortable columns, <kbd>Backspace</kbd> to go back up. The folder, not a copy of it.</li>
           <li><strong>The taskbar keeps working.</strong> Running apps stay where they always were.</li>
           <li><strong>The Recycle Bin is the Recycle Bin.</strong> Right-clicking it gives you Windows' own menu, not ours.</li>
@@ -296,27 +296,32 @@
         <span class="sec-tag">Sheet closes here</span>
       </p>
       <div class="status-line">
-        <span class="stamp">Version 0.1.0</span>
+        <span class="stamp">Version 0.2.0</span>
       </div>
-      <h2 style="margin-top:20px">Alcove 0.1.0 is out.</h2>
-      <p class="sec-sub">The first release, and a first release is what it is: everything on this
-      sheet works, and there will be rough edges we have not met yet. A current-user installer,
-      no admin rights, a Start menu entry, optional start at sign-in. It updates itself from then
-      on, and you can leave at any time with <kbd>Ctrl+Shift+F12</kbd>.</p>
+      <h2 style="margin-top:20px">Alcove 0.2.0 is out.</h2>
+      <p class="sec-sub">Still early, and honest about it: everything on this sheet works, and
+      there will be rough edges we have not met yet. A current-user installer, no admin rights,
+      a Start menu entry, optional start at sign-in. It updates itself from then on, and you can
+      hand the desktop back at any time with <kbd>Ctrl+Shift+F12</kbd>. Running 0.1.0 already?
+      Alcove offers this build itself, or find it under Settings &rarr; System &rarr; Updates.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="https://github.com/izkac/alcove/releases/download/v0.1.0/Alcove_0.1.0_x64-setup.exe">Download for Windows &middot; 3.2 MB</a>
+        <a class="btn btn-primary" href="https://github.com/izkac/alcove/releases/download/v0.2.0/Alcove_0.2.0_x64-setup.exe">Download for Windows &middot; 3.2 MB</a>
         <a class="btn" href="https://github.com/izkac/alcove/releases">Release notes</a>
+        <a class="btn" href="https://github.com/izkac/alcove/blob/main/docs/user-guide.md">User guide</a>
         <a class="btn" href="https://github.com/izkac/alcove">Source on GitHub</a>
       </div>
       <dl class="facts">
-        <div><dt>Version</dt><dd>0.1.0, 31 August 2026</dd></div>
-        <div><dt>Platform</dt><dd>Windows 10 and 11, 64-bit</dd></div>
+        <div><dt>Version</dt><dd>0.2.0, 1 September 2026</dd></div>
+        <div><dt>Platform</dt><dd>Windows 10 and 11, 64-bit, with Edge WebView2</dd></div>
         <div><dt>Install</dt><dd>Current user, no admin rights</dd></div>
         <div><dt>Licence</dt><dd>MIT, open source</dd></div>
       </dl>
-      <p class="note">The installer and every update are signed; Alcove refuses anything that
-      does not verify. Checksums and the signature file sit beside the download on the
-      <a href="https://github.com/izkac/alcove/releases">releases page</a>.</p>
+      <p class="note">Every update is signed, and Alcove refuses one that does not verify; the
+      signature sits beside the download on the
+      <a href="https://github.com/izkac/alcove/releases">releases page</a>. The installer itself
+      is <strong>not code-signed yet</strong>, so Windows SmartScreen will warn you the first
+      time: <em>More info &rarr; Run anyway</em>. We would rather say so here than have it be a
+      surprise.</p>
     </div>
   </section>
 
