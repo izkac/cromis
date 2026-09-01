@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ForgeKit: make the agent finish the job</title>
+<meta name="description" content="ForgeKit installs portable agent skills into the coding agent you already use: Forge, a workflow with mechanical gates, and a thorough code review pipeline. MIT, on npm, seven harnesses.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../theme.js"></script>
+<meta property="og:title" content="ForgeKit: make the agent finish the job">
+<meta property="og:description" content="Portable agent skills: a workflow with mechanical gates, and a thorough code review pipeline. MIT, on npm.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="4" y="5" width="24" height="6" fill="currentColor"/>
+        <rect x="4" y="13" width="24" height="6" fill="currentColor" opacity=".55"/>
+        <rect x="4" y="21" width="17" height="6" fill="currentColor" opacity=".3"/>
+        <rect x="23" y="21" width="5" height="6" fill="var(--signal)"/>
+      </svg>
+      Cromis <span class="brand-sub">/ software studio</span>
+    </a>
+    <nav aria-label="Site">
+      <a href="./" aria-current="page">ForgeKit</a>
+      <a href="#pipeline" class="hide-sm">Workflow</a>
+      <a href="#licence" class="hide-sm">Licence</a>
+      <a href="#get">Install</a>
+      <button class="theme" type="button" data-theme-toggle
+              aria-label="Switch between dark and light" title="Switch between dark and light">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="doc">
+    <div class="wrap">
+      <p class="doc-line">
+        <span><span class="doc-no">DOC. 003</span> &nbsp;ForgeKit / toolkit specification</span>
+        <span>Rev. 2026 &nbsp;·&nbsp; <span class="doc-no">Version 0.3.54</span></span>
+      </p>
+      <h1>Make the agent finish the job.</h1>
+      <p class="lede">A coding agent will happily tell you it is done. ForgeKit installs the
+      skills that make it prove it: <strong>Forge</strong>, a workflow that turns a feature
+      request into a tracked change with a gate at every phase, and <strong>thorough code
+      review</strong>, a review pipeline you invoke on purpose. The gates are mechanical rather
+      than polite: a session cannot reach <em>done</em> while a test is stubbed, a capability is
+      unwired, or acceptance was never actually executed.</p>
+      <dl class="facts">
+        <div><dt>Package</dt><dd><code>@izkac/forgekit</code> on npm</dd></div>
+        <div><dt>Runtime</dt><dd>Node 20 or newer</dd></div>
+        <div><dt>Licence</dt><dd>MIT, open source</dd></div>
+        <div><dt>Harnesses</dt><dd>Seven, one install</dd></div>
+      </dl>
+      <div class="actions">
+        <a class="btn btn-primary" href="#get">Install it</a>
+        <a class="btn" href="#pipeline">What it does</a>
+        <a class="btn" href="https://github.com/izkac/forgekit">Source on GitHub</a>
+      </div>
+      <figure>
+        <pre class="term"><i>$</i> <b>forgekit list</b>
+forge                     claude,cursor,codex,copilot,gemini,windsurf,opencode  <b>present</b>
+thorough-code-review      claude,cursor,codex,copilot,gemini,windsurf,opencode  <b>present</b>
+archive-to-adr            claude,cursor,codex,copilot,gemini,windsurf,opencode  <b>present</b>
+git-resolve-adr-conflict  claude,cursor,codex,copilot,gemini,windsurf,opencode  <b>present</b>
+plain-language            claude,cursor,codex,copilot,gemini,windsurf,opencode  <b>present</b></pre>
+        <figcaption><span class="fig-no">Fig. 1</span>
+        <span>Five skills, seven agents, one folder. Skills live once in
+        <code>~/.agents/skills/</code>; the agents that insist on their own path get a symlink
+        to it.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="pipeline">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">01</span>
+        <span class="sec-kicker">What it does</span>
+        <span class="sec-tag">3 functions, recorded</span>
+      </p>
+      <h2>A pipeline, not an atmosphere.</h2>
+      <p class="sec-sub">Forge never starts on its own. You ask for it by name, and from that
+      point the work has phases, artefacts, and a gate at the end of each one.</p>
+
+      <div class="entries">
+
+        <article class="entry">
+          <div class="entry-text">
+            <p class="entry-no">1.1</p>
+            <h3>Seven phases, each leaving something behind</h3>
+            <p class="entry-body">A request becomes a tracked change: a proposal, a design, a
+            task list, and a plain-language operator brief that is the thing you actually read.
+            Implementation runs one subagent per task group, test first, with a review at every
+            group boundary. Nothing advances on an assurance; each phase transition is a command
+            that is allowed to refuse.</p>
+          </div>
+          <figure class="entry-art">
+            <pre class="term">triage → brainstorm → plan → implement
+       → verify → review → finish</pre>
+            <figcaption><span class="fig-no">Fig. 2</span>
+            <span>The pipeline. Triage decides whether a request deserves it at all.</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="entry flip">
+          <div class="entry-text">
+            <p class="entry-no">1.2</p>
+            <h3>It argues against its own ceremony</h3>
+            <p class="entry-body">Most work does not need a pipeline, and the tooling agrees.
+            Triage sends a rename or a question straight through. Even mid-session, a plan that
+            turns out small enough trips an <em>exit ramp</em> and the agent offers to leave
+            Forge before scaffolding any specs. A high-risk change gets no such offer, however
+            small it looks.</p>
+          </div>
+          <figure class="entry-art">
+            <pre class="term"><i>$</i> <b>forge exit-check --tasks 3 --capabilities 1 --spine-rows 0 --json</b>
+{"qualifies":<b>true</b>,"reason":"3 task(s), single capability,
+ no spine rows — small enough to leave Forge"}
+
+<i>$</i> <b>forge exit-check --tasks 12 --capabilities 3 --high-risk --json</b>
+{"qualifies":<b>false</b>,"reason":"high-risk change — no exit
+ offered, however small"}</pre>
+            <figcaption><span class="fig-no">Fig. 3</span>
+            <span>The exit ramp deciding both ways. Real output, wrapped to fit.</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="entry">
+          <div class="entry-text">
+            <p class="entry-no">1.3</p>
+            <h3>Gates that count, not gates that ask</h3>
+            <p class="entry-body">A capability that gets claimed has to appear in the spine
+            matrix with real runtime behind it. Acceptance is an executed command with a recorded
+            hash, not a paragraph saying it passed. Wiring left for later goes into the deferral
+            registry, where it stays visible. <code>forge integrity-check</code> runs at the
+            close and refuses a session that faked any of it.</p>
+          </div>
+          <figure class="entry-art">
+            <pre class="term"><i>$</i> <b>forge --help</b>   (excerpt)
+spine  init|check      Capability→runtime matrix
+e2e    init|run|check  Executed product-loop acceptance
+defer  add|resolve     Deferred wiring = tracked debt
+tdd    run --task …    Stamp red/green evidence
+integrity-check        Mechanical gate, runs at done
+score  [--write]       Session scorecard
+finding add|list       Findings ledger</pre>
+            <figcaption><span class="fig-no">Fig. 4</span>
+            <span>The integrity commands. The agent runs most of these; you read the verdict.</span></figcaption>
+          </figure>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block band" id="behaviour">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">02</span>
+        <span class="sec-kicker">Good behaviour</span>
+        <span class="sec-tag">Compliance record</span>
+      </p>
+      <h2>It sits beside your agent, not in front of it.</h2>
+      <p class="sec-sub">ForgeKit is files on your disk and a CLI on your PATH. There is no
+      service in the middle and nothing to sign up for.</p>
+
+      <div class="cols cols-2">
+        <ul class="checks">
+          <li><strong>Your agent, unchanged.</strong> Claude Code, Cursor, Codex, GitHub Copilot, Gemini, Windsurf and opencode all read the same skill folder. Pick your harnesses at install; running it again reconciles the difference.</li>
+          <li><strong>Nothing runs unasked.</strong> Forge starts when you invoke it. Thorough code review never auto-loads at all: you ask for it by name or it does not happen.</li>
+          <li><strong>The planning engine is yours.</strong> Use the OpenSpec CLI if you have it, the built-in specs engine if you do not. Both share a change layout, so switching later moves no files.</li>
+        </ul>
+        <ul class="checks">
+          <li><strong>Counts, never content.</strong> Session metrics are harvested afterwards from transcripts your agent already wrote: model names, tool names, phases, timestamps, totals. Prompts, replies, command strings and file contents are never recorded.</li>
+          <li><strong>Nothing is sent anywhere.</strong> Metrics land in a file inside your project. No endpoint, no key, no account. Telemetry that cannot run degrades to <em>unavailable</em> and gets out of the way rather than blocking a phase.</li>
+          <li><strong>Uninstall is a delete.</strong> <code>forgekit uninstall</code> removes the skill directories. What is left is your repository, exactly as your agent left it.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">03</span>
+        <span class="sec-kicker">What gets installed</span>
+        <span class="sec-tag">Table 1</span>
+      </p>
+      <h2>Five skills, three commands.</h2>
+      <table class="keys">
+        <caption>ForgeKit register: the skills, and the CLIs that drive them</caption>
+        <thead>
+          <tr><th scope="col">Name</th><th scope="col">What it is</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>forge</code></td><td>The workflow skill: triage, phases, gates, integrity, scorecard</td></tr>
+          <tr><td><code>thorough-code-review</code></td><td>A review pipeline over a branch or a diff: signals, carryforward, merge, render</td></tr>
+          <tr><td><code>archive-to-adr</code></td><td>Turns an archived change into an Architecture Decision Record</td></tr>
+          <tr><td><code>git-resolve-adr-conflict</code></td><td>Settles the merge conflicts an ADR index collects</td></tr>
+          <tr><td><code>plain-language</code></td><td>Takes the jargon out of what the agent writes back to you</td></tr>
+          <tr><td><code>forgekit</code></td><td>The installer: pick skills against agents, then list, update, uninstall</td></tr>
+          <tr><td><code>forge</code> &middot; <code>review</code></td><td>The two day-to-day CLIs, same package</td></tr>
+        </tbody>
+      </table>
+      <p class="note">ADRs are optional and stay off until you pick them. Enabling them installs
+      the two ADR skills and scaffolds an index, a decisions file, and the hooks that speak up
+      when a change is archived without one.</p>
+    </div>
+  </section>
+
+  <section class="block band" id="licence">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">04</span>
+        <span class="sec-kicker">Licence</span>
+        <span class="sec-tag">MIT</span>
+      </p>
+      <div class="band-inner" style="margin-top:22px">
+        <h2>MIT. Free, and free to fork.</h2>
+        <div>
+          <p class="sec-sub" style="margin-top:0">ForgeKit is the Cromis product that is
+          properly open source: MIT, published on npm, source on GitHub, fork it and go. It is a
+          developer tool, and a developer tool you are not allowed to read is a developer tool
+          you have no reason to trust.</p>
+          <p class="note">The <strong>Forge</strong> skill and several of its bundled workflows
+          — brainstorming, TDD, subagent-driven development, verification before completion,
+          systematic debugging — began as
+          <a href="https://github.com/obra/superpowers">Superpowers</a> skills (MIT) and were
+          adapted into a maintained fork. Superpowers is not required at runtime. The planning
+          engines, the ADR skills, the review pipeline and the CLI are ForgeKit's own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="get">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">05</span>
+        <span class="sec-kicker">Install</span>
+        <span class="sec-tag">Sheet closes here</span>
+      </p>
+      <div class="status-line">
+        <span class="stamp">Version 0.3.54</span>
+      </div>
+      <h2 style="margin-top:20px">Two commands and you are wired in.</h2>
+      <p class="sec-sub">The installer asks which skills, which harnesses and which planning
+      engine, then remembers the answers. Point it at a project and <code>forge init</code>
+      writes the commands, rules and hooks for that repository.</p>
+      <figure style="margin-top:26px">
+        <pre class="term"><i>$</i> <b>npm i -g @izkac/forgekit</b>
+<i>$</i> <b>forgekit install</b>          arrow-key checkboxes, a = all
+
+or say it outright:
+<i>$</i> <b>forgekit install --skills forge,thorough-code-review --agents claude,cursor</b>
+<i>$</i> <b>cd my-project &amp;&amp; forge init --claude --adr</b></pre>
+        <figcaption><span class="fig-no">Fig. 5</span>
+        <span>Install globally, then pick. <code>npx @izkac/forgekit install</code> works
+        without the global step.</span></figcaption>
+      </figure>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.npmjs.com/package/@izkac/forgekit">The package on npm</a>
+        <a class="btn" href="https://github.com/izkac/forgekit">Source on GitHub</a>
+        <a class="btn" href="https://github.com/izkac/forgekit/blob/main/docs/day-to-day.md">Forge day to day</a>
+      </div>
+      <dl class="facts">
+        <div><dt>Version</dt><dd>0.3.54, 28 August 2026</dd></div>
+        <div><dt>Runtime</dt><dd>Node 20 or newer</dd></div>
+        <div><dt>Licence</dt><dd>MIT</dd></div>
+        <div><dt>Account</dt><dd>None</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>ForgeKit is made by <a href="../">Cromis</a> &middot; &copy; 2026 &middot; Doc. 003</span>
+    <span class="links">
+      <a href="../">Cromis</a>
+      <a href="https://github.com/izkac/forgekit">GitHub</a>
+      <a href="mailto:hello@cromis.org">hello@cromis.org</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -453,6 +453,25 @@ figcaption {
 .lead-product figure { margin-top: 26px; }
 .doc figure { margin-top: clamp(30px, 5vh, 44px); }
 
+/* ---- Terminal transcript: the CLI's own output, unretouched ------------------- */
+
+.term {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface-2);
+  padding: 16px 18px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  white-space: pre;
+}
+/* Grid children must be allowed to shrink, or a wide transcript blows the column out. */
+.entry > *, .band-inner > *, .doc { min-width: 0; }
+.term b { color: var(--ink); font-weight: 600; }
+.term i { color: var(--signal); font-style: normal; font-weight: 700; }
+
 /* ---- Feature entries (Alcove page) ------------------------------------------ */
 
 .entries { margin-top: clamp(24px, 4vh, 40px); }
