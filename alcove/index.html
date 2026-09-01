@@ -3,28 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alcove — give every icon a home</title>
-<meta name="description" content="Alcove is a Windows desktop organizer. Named drawers replace the loose grid of desktop icons — one open at a time, spread into a canvas when they grow, saved per monitor.">
+<title>Alcove: give every icon a home</title>
+<meta name="description" content="Alcove is a Windows desktop organizer. Named drawers replace the loose grid of desktop icons: one open at a time, spread into a canvas when they grow, saved per monitor.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
 <script src="../theme.js"></script>
-<meta property="og:title" content="Alcove — give every icon a home">
+<meta property="og:title" content="Alcove: give every icon a home">
 <meta property="og:description" content="A Windows desktop organizer. Named drawers instead of a loose grid of icons.">
 <meta property="og:type" content="website">
 </head>
 <body>
 
-<header class="nav">
+<header class="masthead">
   <div class="wrap">
     <a class="brand" href="../">
       <svg viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#0b1220"/>
-        <path d="M7 26V16a9 9 0 0 1 18 0v10" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linecap="round"/>
-        <rect x="9" y="22" width="14" height="3.5" rx="1" fill="#67e8f9"/>
+        <rect x="4" y="5" width="24" height="6" fill="currentColor"/>
+        <rect x="4" y="13" width="24" height="6" fill="currentColor" opacity=".55"/>
+        <rect x="4" y="21" width="17" height="6" fill="currentColor" opacity=".3"/>
+        <rect x="23" y="21" width="5" height="6" fill="var(--signal)"/>
       </svg>
-      Cromis
+      Cromis <span class="brand-sub">/ software studio</span>
     </a>
-    <nav>
+    <nav aria-label="Site">
       <a href="./" aria-current="page">Alcove</a>
       <a href="#features" class="hide-sm">Features</a>
       <a href="#licence" class="hide-sm">Licence</a>
@@ -42,130 +43,167 @@
 
 <main>
 
-  <section class="hero">
+  <section class="doc">
     <div class="wrap">
-      <p class="eyebrow">Alcove · Windows desktop organizer</p>
+      <p class="doc-line">
+        <span><span class="doc-no">DOC. 002</span> &nbsp;Alcove / product specification</span>
+        <span>Rev. 2026 &nbsp;·&nbsp; <span class="doc-no">Version 0.1.0</span></span>
+      </p>
       <h1>Give every icon a home.</h1>
-      <p class="lede mt">Your Desktop is where files go to be forgotten. Alcove replaces that
-      loose grid with named drawers — <em>Alcoves</em> — that open one at a time, spread into a
+      <p class="lede">Your Desktop is where files go to be forgotten. Alcove replaces that
+      loose grid with named drawers, <em>Alcoves</em>, that open one at a time, spread into a
       full canvas when they grow, and keep their own arrangement on every monitor. It reads the
       real files on your Windows Desktop and opens them with the real Windows shell. Nothing is
       copied or moved unless you move it.</p>
+      <dl class="facts">
+        <div><dt>Platform</dt><dd>Windows 10 and 11, 64-bit</dd></div>
+        <div><dt>Config</dt><dd><code>%APPDATA%\com.alcove.desktop\desktop.json</code></dd></div>
+        <div><dt>Network</dt><dd>None required</dd></div>
+        <div><dt>Account</dt><dd>None</dd></div>
+      </dl>
       <div class="actions">
         <a class="btn btn-primary" href="#get">Get Alcove</a>
         <a class="btn" href="#features">What it does</a>
       </div>
-
-      <figure class="mt">
+      <figure>
         <img class="shot" src="img/desktop.webp" width="3200" height="2000" decoding="async"
-                 alt="The Alcove desktop: a shelf rail of coloured drawers down the left, the Documents drawer open as a panel, the frequent strip across the top, and pinned icons above the Recycle Bin in the corner.">
-        <figcaption>The shelf rail on the left, one drawer open, the frequent strip along the
-        top edge, pinned icons and the Recycle Bin in the corner. Alcove running on a sample
-        desktop.</figcaption>
+             alt="The Alcove desktop: a shelf rail of coloured drawers down the left, the Documents drawer open as a panel, the frequent strip across the top, and pinned icons above the Recycle Bin in the corner.">
+        <figcaption><span class="fig-no">Fig. 1</span>
+        <span>The shelf rail on the left, one drawer open, the frequent strip along the top
+        edge, pinned icons and the Recycle Bin in the corner. Alcove running on a sample desktop.</span></figcaption>
       </figure>
     </div>
   </section>
 
-  <section id="features">
+  <section class="block" id="features">
     <div class="wrap">
-      <p class="kicker">What it does</p>
+      <p class="sec-head">
+        <span class="sec-no">01</span>
+        <span class="sec-kicker">What it does</span>
+        <span class="sec-tag">4 functions, recorded</span>
+      </p>
       <h2>An organizer, not a replacement.</h2>
-      <p class="sub">Alcove draws itself onto the desktop in place of Explorer's icon grid.
+      <p class="sec-sub">Alcove draws itself onto the desktop in place of Explorer's icon grid.
       Everything else about Windows keeps working exactly as it did.</p>
 
-      <div class="rows" style="margin-top:44px">
+      <div class="entries">
 
-        <div class="row">
-          <div>
+        <article class="entry">
+          <div class="entry-text">
+            <p class="entry-no">1.1</p>
             <h3>It sorts what is already there</h3>
-            <p class="sub">On first run Alcove reads your Desktop and files it into Apps,
-            Documents, Photos, Folders and Installers — or starts with one empty Inbox and lets
+            <p class="entry-body">On first run Alcove reads your Desktop and files it into Apps,
+            Documents, Photos, Folders and Installers, or starts with one empty Inbox and lets
             you file things yourself. The Inbox catches everything afterwards: new files landing
             on the Desktop, and anything you drag back onto empty wallpaper.</p>
           </div>
-          <div class="row-art">
+          <figure class="entry-art">
             <img class="shot" src="img/firstrun.webp" width="1024" height="1060" loading="lazy" decoding="async"
                  alt="Alcove’s first-run screen offering to sort 34 desktop icons into named groups: Apps, Client A, Documents, Photos, each with a count and a colour.">
-          </div>
-        </div>
+            <figcaption><span class="fig-no">Fig. 2</span>
+            <span>First run: 34 icons offered for sorting into named groups.</span></figcaption>
+          </figure>
+        </article>
 
-        <div class="row flip">
-          <div>
+        <article class="entry flip">
+          <div class="entry-text">
+            <p class="entry-no">1.2</p>
             <h3>One drawer open at a time</h3>
-            <p class="sub">Click a tile in the rail to open a drawer, click it again to close.
+            <p class="entry-body">Click a tile in the rail to open a drawer, click it again to close.
             Opening another closes the first, so the wallpaper stays clear the rest of the time.
-            Each tile carries the drawer's name, its item count and how much disk space it holds —
-            the heaviest drawer is tinted when it clearly outweighs the rest.</p>
+            Each tile carries the drawer's name, its item count and how much disk space it holds.
+            The heaviest drawer is tinted when it clearly outweighs the rest.</p>
           </div>
-          <div class="row-art">
+          <figure class="entry-art">
             <img class="shot" src="img/drawer.webp" width="1492" height="654" loading="lazy" decoding="async"
                  alt="The shelf rail showing drawer names with item counts and disk sizes, next to the open Documents drawer listing seven files.">
-          </div>
-        </div>
+            <figcaption><span class="fig-no">Fig. 3</span>
+            <span>The rail: drawer names with item counts and disk sizes; Documents open.</span></figcaption>
+          </figure>
+        </article>
 
-        <div class="row">
-          <div>
+        <article class="entry">
+          <div class="entry-text">
+            <p class="entry-no">1.3</p>
             <h3>Grows into a canvas, not across the wallpaper</h3>
-            <p class="sub">A small drawer opens as a compact panel. Past twelve items it opens
+            <p class="entry-body">A small drawer opens as a compact panel. Past twelve items it opens
             spread across the desktop instead, where you can make named rows and drag icons
             between them. You can force either shape from the drawer header, and the layout is
             remembered.</p>
           </div>
-          <div class="row-art">
+          <figure class="entry-art">
             <img class="shot" src="img/groups.webp" width="2952" height="924" loading="lazy" decoding="async"
                  alt="A large drawer spread across the desktop as a canvas, with named rows: This week, Client A, and Everything else.">
-          </div>
-        </div>
+            <figcaption><span class="fig-no">Fig. 4</span>
+            <span>A drawer past twelve items, spread as a canvas with named rows.</span></figcaption>
+          </figure>
+        </article>
 
-        <div class="row" style="grid-template-columns:1fr; gap:24px">
-          <div>
+        <article class="entry full">
+          <div class="entry-text">
+            <p class="entry-no">1.4</p>
             <h3>A strip that fills itself</h3>
-            <p class="sub">The frequent strip along the top or bottom edge holds what you actually
-            open — you never fill it. Scores halve every two weeks so old habits fade, and a
+            <p class="entry-body">The frequent strip along the top or bottom edge holds what you
+            actually open; you never fill it. Scores halve every two weeks so old habits fade, and a
             newcomer has to beat the weakest slot by half again before it takes the place. Items
             hold their position as ranks shift, so nothing slides out from under your cursor
             mid-click. Nail one down with <em>Keep in this slot</em>, or ban one for good.</p>
           </div>
-          <div class="row-art">
+          <figure class="entry-art">
             <img class="shot" src="img/strip.webp" width="1576" height="202" loading="lazy" decoding="async"
                  alt="The frequent strip: Windows shortcuts on the left, then the apps and files opened most often, each in a fixed slot.">
-          </div>
+            <figcaption><span class="fig-no">Fig. 5</span>
+            <span>The frequent strip: shortcuts left, then the most-opened items in fixed slots.</span></figcaption>
+          </figure>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block band" id="search">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">02</span>
+        <span class="sec-kicker">Search</span>
+        <span class="sec-tag">Ranked by actual usage</span>
+      </p>
+      <h2><kbd>Ctrl</kbd> <kbd>Space</kbd> from anywhere in Windows</h2>
+      <div class="band-inner" style="margin-top:20px">
+        <div>
+          <p class="sec-sub" style="margin-top:0">A standalone search window, open even when Alcove is
+          behind other apps. Before you type it shows two short lists: <strong>Today</strong> (the
+          files you have changed since midnight) and <strong>Frequent</strong>, what you open most.
+          Press <kbd>1</kbd>&ndash;<kbd>9</kbd> to open one without touching the mouse.</p>
+          <p class="sec-sub" style="margin-top:14px">Once you type, results rank by how often you
+          actually open something, not just how well the name matches. Something you use daily wins
+          a close call, but a weak match never beats a strong one, however often you open it.</p>
         </div>
-
+        <figure>
+          <img class="shot" src="img/search-panel.webp" width="1024" height="664" loading="lazy" decoding="async"
+               alt="Alcove's search window before typing: a Frequent list of the files and apps opened most, each numbered 1 to 9 with the drawer it lives in.">
+          <figcaption><span class="fig-no">Fig. 6</span>
+          <span>Search before typing: the Frequent list, numbered 1 to 9.</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section id="search">
+  <section class="block" id="windows">
     <div class="wrap">
-      <div class="callout">
-        <p class="eyebrow">Search</p>
-        <h2 style="margin-top:14px"><kbd style="font-size:20px; padding:8px 12px">Ctrl</kbd>
-        <kbd style="font-size:20px; padding:8px 12px">Space</kbd> from anywhere in Windows</h2>
-        <p class="sub" style="max-width:70ch">A standalone search window, open even when Alcove is
-        behind other apps. Before you type it shows two short lists: <strong>Today</strong> — the
-        files you have changed since midnight — and <strong>Frequent</strong>, what you open most.
-        Press <kbd>1</kbd>–<kbd>9</kbd> to open one without touching the mouse.</p>
-        <p class="sub" style="max-width:70ch">Once you type, results rank by how often you
-        actually open something, not just how well the name matches. Something you use daily wins
-        a close call — but a weak match never beats a strong one, however often you open it.</p>
-        <img class="shot" src="img/search-panel.webp" width="1024" height="664" loading="lazy" decoding="async"
-             style="max-width:560px; margin-top:8px"
-             alt="Alcove's search window before typing: a Frequent list of the files and apps opened most, each numbered 1 to 9 with the drawer it lives in.">
-      </div>
-    </div>
-  </section>
-
-  <section id="windows">
-    <div class="wrap">
-      <p class="kicker">Good behaviour</p>
+      <p class="sec-head">
+        <span class="sec-no">03</span>
+        <span class="sec-kicker">Good behaviour</span>
+        <span class="sec-tag">Compliance record</span>
+      </p>
       <h2>It stays a Windows citizen.</h2>
-      <p class="sub">A desktop shell that breaks the rest of the machine is not worth the
+      <p class="sec-sub">A desktop shell that breaks the rest of the machine is not worth the
       tidier wallpaper.</p>
-      <div class="grid grid-2" style="margin-top:32px">
+
+      <div class="cols cols-2">
         <ul class="checks">
           <li><strong>Real files, real shell.</strong> Alcove reads your actual Desktop folder and opens files with their normal Windows associations.</li>
-          <li><strong>A drawer can mirror a real folder.</strong> Point one at Downloads or a project directory and it shows that folder's live contents — icon, list and details views, sortable columns, <kbd>Backspace</kbd> to go back up. The folder, not a copy of it.</li>
+          <li><strong>A drawer can mirror a real folder.</strong> Point one at Downloads or a project directory and it shows that folder's live contents: icon, list and details views, sortable columns, <kbd>Backspace</kbd> to go back up. The folder, not a copy of it.</li>
           <li><strong>The taskbar keeps working.</strong> Running apps stay where they always were.</li>
           <li><strong>The Recycle Bin is the Recycle Bin.</strong> Right-clicking it gives you Windows' own menu, not ours.</li>
           <li><strong>Every monitor gets its own desk.</strong> Drawers belong to a screen and can be dragged to another; layouts save per desk.</li>
@@ -180,74 +218,105 @@
     </div>
   </section>
 
-  <section id="keys">
-    <div class="wrap narrow">
-      <p class="kicker">Built for the keyboard</p>
+  <section class="block" id="keys">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">04</span>
+        <span class="sec-kicker">Built for the keyboard</span>
+        <span class="sec-tag">Table 1</span>
+      </p>
       <h2>The shortcuts worth knowing.</h2>
-      <table class="keys" style="margin-top:24px">
-        <tr><td><kbd>Ctrl+Space</kbd></td><td>Open search — from anywhere in Windows, even when Alcove is behind other apps</td></tr>
-        <tr><td><kbd>Ctrl+F</kbd></td><td>Search within Alcove</td></tr>
-        <tr><td><kbd>Ctrl+N</kbd></td><td>New Alcove</td></tr>
-        <tr><td><kbd>Ctrl+Shift+H</kbd></td><td>Collapse every drawer</td></tr>
-        <tr><td><kbd>Ctrl+V</kbd></td><td>Paste clipboard files into the open drawer's folder, or onto the Desktop</td></tr>
-        <tr><td><kbd>Enter</kbd> / <kbd>Delete</kbd></td><td>Open the selection, or send it to the Recycle Bin</td></tr>
-        <tr><td><kbd>Backspace</kbd></td><td>Go up a level in a drilled-into folder</td></tr>
-        <tr><td><kbd>Ctrl+Shift+F12</kbd></td><td>Emergency release — hand the desktop back to Explorer</td></tr>
+      <table class="keys">
+        <caption>Alcove keyboard register, global and in-app</caption>
+        <thead>
+          <tr><th scope="col">Keys</th><th scope="col">Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><kbd>Ctrl+Space</kbd></td><td>Open search: from anywhere in Windows, even when Alcove is behind other apps</td></tr>
+          <tr><td><kbd>Ctrl+F</kbd></td><td>Search within Alcove</td></tr>
+          <tr><td><kbd>Ctrl+N</kbd></td><td>New Alcove</td></tr>
+          <tr><td><kbd>Ctrl+Shift+H</kbd></td><td>Collapse every drawer</td></tr>
+          <tr><td><kbd>Ctrl+V</kbd></td><td>Paste clipboard files into the open drawer's folder, or onto the Desktop</td></tr>
+          <tr><td><kbd>Enter</kbd> / <kbd>Delete</kbd></td><td>Open the selection, or send it to the Recycle Bin</td></tr>
+          <tr><td><kbd>Backspace</kbd></td><td>Go up a level in a drilled-into folder</td></tr>
+          <tr><td><kbd>Ctrl+Shift+F12</kbd></td><td>Emergency release: hand the desktop back to Explorer</td></tr>
+        </tbody>
       </table>
-      <p class="small" style="margin-top:18px">Double-click the wallpaper for a new Alcove. Drag an
+      <p class="note">Also on record: double-click the wallpaper for a new Alcove. Drag an
       icon onto a drawer to file it, onto the corner pins to freeze it in place, onto empty
-      wallpaper to send it back to the Inbox — or onto an app in the frequent strip to open it
+      wallpaper to send it back to the Inbox, or onto an app in the frequent strip to open it
       with that app instead of its usual one.</p>
     </div>
   </section>
 
-  <section id="licence">
+  <section class="block band" id="licence">
     <div class="wrap">
-      <p class="kicker">Licence</p>
+      <p class="sec-head">
+        <span class="sec-no">05</span>
+        <span class="sec-kicker">Licence</span>
+        <span class="sec-tag">Free and complete</span>
+      </p>
       <h2>Free and complete. A licence buys updates.</h2>
-      <p class="sub" style="max-width:70ch">Alcove starts with Windows and <em>is</em> your desktop.
-      Something that asks for money every morning is what bundled junk does — so Alcove does not.</p>
+      <p class="sec-sub">Alcove starts with Windows and <em>is</em> your desktop.
+      Something that asks for money every morning is what bundled junk does, so Alcove does not.</p>
 
-      <div class="grid grid-3" style="margin-top:32px">
-        <div class="card">
+      <div class="cols cols-3">
+        <article>
+          <p class="col-kicker">Clause 1</p>
           <h3>Complete without a key</h3>
           <p>Every feature, every monitor, no time limit, no nag at startup, on as many machines
           as you like. You do not need a licence key to use Alcove.</p>
-        </div>
-        <div class="card">
+        </article>
+        <article>
+          <p class="col-kicker">Clause 2</p>
           <h3>A key buys newer versions</h3>
           <p>A licence covers updates for the period it names. When it lapses your copy keeps
-          working forever, in full — you just stop being offered newer builds.</p>
-        </div>
-        <div class="card">
+          working forever, in full; you just stop being offered newer builds.</p>
+        </article>
+        <article>
+          <p class="col-kicker">Clause 3</p>
           <h3>Nothing that can lock you out</h3>
           <p>Keys verify offline against a public key built into the app. No activation server,
           nothing to revoke, no check that can fail on a bad day.</p>
-        </div>
+        </article>
       </div>
 
-      <p class="small" style="margin-top:24px; max-width:70ch">The source is published so you can
-      read it, learn from it, check what it does to your machine, and build it for yourself.
-      Alcove is <strong>not</strong> open source: redistributing builds is the one thing the
-      licence does not allow. Updates are signed and the app refuses anything that does not
-      verify.</p>
+      <p class="note">The source is published so you can read it, learn from it, check what it
+      does to your machine, and build it for yourself. Alcove is <strong>not</strong> open
+      source: redistributing builds is the one thing the licence does not allow. Updates are
+      signed and the app refuses anything that does not verify.</p>
     </div>
   </section>
 
-  <section id="get">
+  <section class="block" id="get">
     <div class="wrap">
-      <div class="callout" style="text-align:center">
-        <p class="eyebrow" style="justify-content:center">Status</p>
-        <h2 style="margin-top:14px">Alcove is in early development.</h2>
-        <p class="sub" style="margin:0 auto; max-width:56ch">The first build lands here as a
-        current-user installer — no admin rights, Start menu entry, optional start at sign-in,
-        and it updates itself from then on. Leave a line and you will hear when it is ready.</p>
-        <div class="actions" style="justify-content:center">
-          <a class="btn btn-primary" href="mailto:hello@cromis.org?subject=Alcove%20—%20tell%20me%20when%20it%20ships">Tell me when it ships</a>
-          <a class="btn" href="https://github.com/izkac/alcove">Source on GitHub</a>
-        </div>
-        <p class="small" style="margin:22px 0 0">Windows 10 and 11 · 64-bit · no account required</p>
+      <p class="sec-head">
+        <span class="sec-no">06</span>
+        <span class="sec-kicker">Download</span>
+        <span class="sec-tag">Sheet closes here</span>
+      </p>
+      <div class="status-line">
+        <span class="stamp">Version 0.1.0</span>
       </div>
+      <h2 style="margin-top:20px">Alcove 0.1.0 is out.</h2>
+      <p class="sec-sub">The first release, and a first release is what it is: everything on this
+      sheet works, and there will be rough edges we have not met yet. A current-user installer,
+      no admin rights, a Start menu entry, optional start at sign-in. It updates itself from then
+      on, and you can leave at any time with <kbd>Ctrl+Shift+F12</kbd>.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/izkac/alcove/releases/download/v0.1.0/Alcove_0.1.0_x64-setup.exe">Download for Windows &middot; 3.2 MB</a>
+        <a class="btn" href="https://github.com/izkac/alcove/releases">Release notes</a>
+        <a class="btn" href="https://github.com/izkac/alcove">Source on GitHub</a>
+      </div>
+      <dl class="facts">
+        <div><dt>Version</dt><dd>0.1.0, 31 August 2026</dd></div>
+        <div><dt>Platform</dt><dd>Windows 10 and 11, 64-bit</dd></div>
+        <div><dt>Install</dt><dd>Current user, no admin rights</dd></div>
+        <div><dt>Source</dt><dd>Published, not open source</dd></div>
+      </dl>
+      <p class="note">The installer and every update are signed; Alcove refuses anything that
+      does not verify. Checksums and the signature file sit beside the download on the
+      <a href="https://github.com/izkac/alcove/releases">releases page</a>.</p>
     </div>
   </section>
 
@@ -255,7 +324,7 @@
 
 <footer class="site">
   <div class="wrap">
-    <span>Alcove is made by <a href="../">Cromis</a> · © 2026</span>
+    <span>Alcove is made by <a href="../">Cromis</a> &middot; &copy; 2026 &middot; Doc. 002</span>
     <span class="links">
       <a href="../">Cromis</a>
       <a href="https://github.com/izkac/alcove">GitHub</a>
