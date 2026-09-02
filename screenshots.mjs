@@ -200,14 +200,42 @@ await shot("groups", `RECT:(() => {
 // 4. Search, on a clear desktop.
 await openDrawer("Documents") // clicking the open tile again closes it
 await sleep(600)
-await evaluate(`(() => {
+
+const openSearch = () => evaluate(`(() => {
   const b = [...document.querySelectorAll('button')]
     .find(b => /search/i.test((b.getAttribute('aria-label') || b.title || b.textContent) || ''));
   if (b) b.click();
   return !!b;
 })()`)
+
+/** cmdk's input is React-controlled, so go through the native value setter. */
+const typeSearch = (text) => evaluate(`(() => {
+  const input = document.querySelector('[cmdk-input]');
+  if (!input) return false;
+  const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+  set.call(input, ${JSON.stringify(text)});
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+})()`)
+
+await openSearch()
 await sleep(1200)
 await shot("search-panel", `document.querySelector('[cmdk-root]')`, 0)
+// The same sheet with the wallpaper around it: this is the light half of the pair.
+await shot("sheet-light", `document.querySelector('[cmdk-root]')`, 70)
+
+// 5. The command palette behind `>`.
+await typeSearch(">")
+await sleep(800)
+await shot("commands", `document.querySelector('[cmdk-root]')`, 0)
+
+// 6. The dark half: the identical sheet over a dark wallpaper. `?dark` swaps the
+//    mock's stand-in wallpaper; the desk state is already in localStorage.
+await send("Page.navigate", { url: URL + "?dark" })
+await sleep(3500)
+await openSearch()
+await sleep(1400)
+await shot("sheet-dark", `document.querySelector('[cmdk-root]')`, 70)
 
 chrome.kill()
 process.exit(0)

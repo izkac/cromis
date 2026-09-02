@@ -359,6 +359,8 @@ section.block.band { background: var(--surface-1); }
   border-left: 1px solid var(--rule);
   padding-left: 28px;
 }
+/* Two figures held up against each other: equal columns, so the comparison is fair. */
+.cols.pair > *:last-child { padding-right: 0; }
 
 .col-kicker {
   font-family: var(--mono);
