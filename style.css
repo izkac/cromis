@@ -112,6 +112,7 @@ code {
   background: var(--surface-1);
   border: 1px solid var(--rule);
   padding: 0.05em 0.35em;
+  overflow-wrap: anywhere; /* long paths and a 64-char hash must not push the page sideways */
 }
 
 .wrap {

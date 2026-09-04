@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alcove: code signing policy</title>
+<meta name="description" content="Who is allowed to sign an Alcove release, where the keys live, what we will and won't put our name on, and what the signed build does to your machine.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../theme.js"></script>
+<meta property="og:title" content="Alcove: code signing policy">
+<meta property="og:description" content="Who is allowed to sign an Alcove release, where the keys live, and what we will and won't put our name on.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cromis.org/alcove/code-signing/">
+<meta property="og:site_name" content="Cromis">
+<meta property="og:image" content="https://cromis.org/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Alcove desktop: a shelf rail of named drawers down the left, the Documents drawer open, and the frequent strip along the bottom.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://cromis.org/alcove/code-signing/">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="../../">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="4" y="5" width="24" height="6" fill="currentColor"/>
+        <rect x="4" y="13" width="24" height="6" fill="currentColor" opacity=".55"/>
+        <rect x="4" y="21" width="17" height="6" fill="currentColor" opacity=".3"/>
+        <rect x="23" y="21" width="5" height="6" fill="var(--signal)"/>
+      </svg>
+      Cromis <span class="brand-sub">/ software studio</span>
+    </a>
+    <nav aria-label="Site">
+      <a href="../">Alcove</a>
+      <a href="#roles" class="hide-sm">Roles</a>
+      <a href="#keys" class="hide-sm">Keys</a>
+      <a href="#privacy" class="hide-sm">Privacy</a>
+      <a href="../#get">Get it</a>
+      <button class="theme" type="button" data-theme-toggle
+              aria-label="Switch between dark and light" title="Switch between dark and light">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="doc">
+    <div class="wrap">
+      <p class="doc-line">
+        <span><span class="doc-no">DOC. 004</span> &nbsp;Alcove / code signing policy</span>
+        <span>Rev. 2026 &nbsp;&middot;&nbsp; <span class="doc-no">Version 0.2.3</span></span>
+      </p>
+      <h1>Who can sign Alcove, and how.</h1>
+      <p class="lede">Alcove starts with Windows and takes over the desktop. A
+      signature on it is a claim that the thing you are about to run is the thing we built, from
+      the source you can read. This page says who is allowed to make that claim, where the keys
+      that make it live, and what we will not put our name on. It exists because we ask you to
+      trust a signature, and a signature nobody explains is just a checkbox.</p>
+      <dl class="facts">
+        <div><dt>Project</dt><dd>Alcove, <a href="https://github.com/izkac/alcove">github.com/izkac/alcove</a></dd></div>
+        <div><dt>Licence</dt><dd>MIT, no dual-licensing</dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:hello@cromis.org">hello@cromis.org</a></dd></div>
+      </dl>
+      <p class="note">Where this stands today: Alcove is
+      <strong>not Authenticode-signed</strong>. An application for a free certificate under an
+      open-source signing programme is pending, and it may well be refused &mdash; in which case
+      this page says so and Alcove stays unsigned until another route turns up. The policy below
+      governs signing whenever it happens, not a certificate we already hold. Nothing here
+      describes a protection you have today.</p>
+    </div>
+  </section>
+
+  <section class="block" id="roles">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">01</span>
+        <span class="sec-kicker">Roles</span>
+        <span class="sec-tag">A short list</span>
+      </p>
+      <h2>One maintainer, and we'd rather say so.</h2>
+      <p class="sec-sub">Alcove is written by one person in their own time. Pretending
+      otherwise would be the first dishonest thing on this page. So the roles below are held by
+      the same human, and the separation that a larger project gets from having several pairs of
+      eyes, this one gets from building in public, on a public pipeline, from public source.</p>
+      <table class="keys">
+        <caption>Signing roles for Alcove releases</caption>
+        <thead>
+          <tr><th scope="col">Role</th><th scope="col">Who, and what they may do</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Author</td><td>The maintainer. Writes the code and pushes the version tag that starts a release build.</td></tr>
+          <tr><td>Reviewer</td><td>The maintainer. Checks the built installer against the tag it claims to come from before anything is published.</td></tr>
+          <tr><td>Approver</td><td>The maintainer. The only person who may approve a signing request or publish a release.</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Should anyone else ever gain the ability to approve a signing
+      request, this page changes on the same day, and the change is in the site's git history
+      where you can see it. Multi-factor authentication is required on the source repository for
+      every one of those roles, and on the signing service once there is one to require it on.</p>
+    </div>
+  </section>
+
+  <section class="block" id="keys">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">02</span>
+        <span class="sec-kicker">Keys</span>
+        <span class="sec-tag">Two of them</span>
+      </p>
+      <h2>Where the keys live.</h2>
+      <p class="sec-sub">Alcove carries two separate signatures, and they answer
+      different questions. Neither key is in the repository, and neither is on a build machine we
+      don't control.</p>
+      <div class="cols cols-2">
+        <div>
+          <p class="col-kicker">Key 1</p>
+          <h3>The update key</h3>
+          <p>A minisign key that signs every update artifact. Alcove refuses an
+          update that doesn't verify against the public half, which is printed in
+          <code>tauri.conf.json</code> for you to check. The private half is held offline by the
+          maintainer, has never been in the repository, and cannot be regenerated: if it were
+          lost, existing installs would simply stop accepting updates rather than start accepting
+          the wrong ones.</p>
+        </div>
+        <div>
+          <p class="col-kicker">Key 2</p>
+          <h3>The Windows signature</h3>
+          <p>Authenticode, the one that decides what the UAC dialog says about the
+          publisher. <strong>Alcove is not Authenticode-signed</strong>, and the download page
+          says so plainly rather than letting Windows break the news. If the pending application
+          succeeds, the certificate and the publisher name it shows are documented here before
+          the first signed build ships. If it doesn't, this paragraph stays as it is.</p>
+        </div>
+      </div>
+      <p class="note">Version 0.2.3 was built on the maintainer's machine and
+      published by hand, and its SHA-256 sits beside the download so you can check you got what
+      we uploaded. From the next release that moves to GitHub Actions, building from a tagged
+      commit with an attestation you can verify against this repository. Until you see that
+      attestation on a release, assume the older method.</p>
+    </div>
+  </section>
+
+  <section class="block" id="what">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">03</span>
+        <span class="sec-kicker">Scope</span>
+        <span class="sec-tag">Ours only</span>
+      </p>
+      <h2>What we will and won't sign.</h2>
+      <div class="cols cols-3">
+        <div>
+          <p class="col-kicker">Will</p>
+          <h3>Our own builds, our own source</h3>
+          <p>Only binaries built by our own pipeline from our own repository, at a
+          commit that exists in public history. Nothing gets signed on request, on behalf of
+          anyone else, or because it arrived by email.</p>
+        </div>
+        <div>
+          <p class="col-kicker">Won't</p>
+          <h3>Anything that attacks a machine</h3>
+          <p>No hacking tools, no code whose purpose is exploiting a vulnerability,
+          no bundled adware, no third-party payload riding along with the installer. Alcove ships
+          Alcove.</p>
+        </div>
+        <div>
+          <p class="col-kicker">Won't</p>
+          <h3>Anything we can't read</h3>
+          <p>No obfuscated or closed components. Every part of what we sign is MIT
+          and readable, apart from the platform libraries Windows itself provides.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="privacy">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">04</span>
+        <span class="sec-kicker">Privacy</span>
+        <span class="sec-tag">Nothing to report</span>
+      </p>
+      <h2>What the signed build does to your machine.</h2>
+      <p class="sec-sub">A signature says who built it. It doesn't say what the thing
+      does, so here is that too.</p>
+      <div class="cols cols-2">
+        <div>
+          <p class="col-kicker">Data</p>
+          <h3>None leaves</h3>
+          <p>No account, no telemetry, no analytics, no crash reporting. Alcove works
+          with the network unplugged. The only question it ever asks the internet is whether a
+          newer build exists, and you can see that request in the source. Your layout lives in one
+          file on your own disk, at
+          <code>%APPDATA%\com.alcove.desktop\desktop.json</code>.</p>
+        </div>
+        <div>
+          <p class="col-kicker">Removal</p>
+          <h3>It leaves when you tell it to</h3>
+          <p>The installer runs as the current user, needs no admin rights, and
+          uninstalls from Windows' own Apps list. Uninstalling removes the sign-in entry with it.
+          <kbd>Ctrl+Shift+F12</kbd> hands the desktop back to Explorer at any moment, without
+          uninstalling anything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="report">
+    <div class="wrap">
+      <p class="sec-head">
+        <span class="sec-no">05</span>
+        <span class="sec-kicker">Reporting</span>
+        <span class="sec-tag">Tell us</span>
+      </p>
+      <h2>If you find a signed build that shouldn't exist.</h2>
+      <p class="sec-sub">A signed installer that we didn't publish, a signature that
+      doesn't verify, a download mirror we've never heard of: mail
+      <a href="mailto:hello@cromis.org">hello@cromis.org</a> and say what you saw and where. We
+      will help investigate any misuse of a certificate that carries our name, and we would
+      rather hear about it awkwardly than not at all. Official builds come from the
+      <a href="https://github.com/izkac/alcove/releases">releases page</a> and nowhere else.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="../#get">Get Alcove</a>
+        <a class="btn" href="../">What Alcove is</a>
+        <a class="btn" href="https://github.com/izkac/alcove">Source on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Alcove is made by <a href="../../">Cromis</a> &middot; &copy; 2026 &middot; Doc. 004</span>
+    <span class="links">
+      <a href="../../">Cromis</a>
+      <a href="https://github.com/izkac/alcove">GitHub</a>
+      <a href="mailto:hello@cromis.org">hello@cromis.org</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
