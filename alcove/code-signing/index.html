@@ -56,7 +56,7 @@
     <div class="wrap">
       <p class="doc-line">
         <span><span class="doc-no">DOC. 004</span> &nbsp;Alcove / code signing policy</span>
-        <span>Rev. 2026 &nbsp;&middot;&nbsp; <span class="doc-no">Version 0.2.3</span></span>
+        <span>Rev. 2026 &nbsp;&middot;&nbsp; <span class="doc-no">Version 0.2.4</span></span>
       </p>
       <h1>Who can sign Alcove, and how.</h1>
       <p class="lede">Alcove starts with Windows and takes over the desktop. A
@@ -70,11 +70,14 @@
         <div><dt>Contact</dt><dd><a href="mailto:hello@cromis.org">hello@cromis.org</a></dd></div>
       </dl>
       <p class="note">Where this stands today: Alcove is
-      <strong>not Authenticode-signed</strong>. An application for a free certificate under an
-      open-source signing programme is pending, and it may well be refused &mdash; in which case
-      this page says so and Alcove stays unsigned until another route turns up. The policy below
-      governs signing whenever it happens, not a certificate we already hold. Nothing here
-      describes a protection you have today.</p>
+      <strong>not Authenticode-signed</strong>. We applied for a free certificate under an
+      open-source signing programme and were turned down: they sign established projects, and
+      Alcove is too new to count as one yet. That is a fair answer to a fair question, and it
+      makes the route back an obvious one &mdash; we need more people using Alcove before we can
+      ask again. Stars on the repository and installs on real machines are what that is measured
+      in, so if you want the warning gone, using the thing is the way to help. The policy below
+      governs signing whenever it happens, not a certificate we hold. Nothing here describes a
+      protection you have today.</p>
     </div>
   </section>
 
@@ -135,16 +138,15 @@
           <h3>The Windows signature</h3>
           <p>Authenticode, the one that decides what the UAC dialog says about the
           publisher. <strong>Alcove is not Authenticode-signed</strong>, and the download page
-          says so plainly rather than letting Windows break the news. If the pending application
-          succeeds, the certificate and the publisher name it shows are documented here before
-          the first signed build ships. If it doesn't, this paragraph stays as it is.</p>
+          says so plainly rather than letting Windows break the news. When we do get a
+          certificate, it and the publisher name it shows are documented here before the first
+          signed build ships. Until then this paragraph stays as it is.</p>
         </div>
       </div>
-      <p class="note">Version 0.2.3 was built on the maintainer's machine and
-      published by hand, and its SHA-256 sits beside the download so you can check you got what
-      we uploaded. From the next release that moves to GitHub Actions, building from a tagged
-      commit with an attestation you can verify against this repository. Until you see that
-      attestation on a release, assume the older method.</p>
+      <p class="note">Version 0.2.4 is the first release built by GitHub Actions
+      from a tagged commit, rather than on a laptop. It carries a build attestation you can
+      verify against this repository, and its SHA-256 sits beside the download. Anything 0.2.3
+      or older was built by hand, and only the checksum vouches for it.</p>
     </div>
   </section>
 
