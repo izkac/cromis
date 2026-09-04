@@ -125,8 +125,60 @@ const poseOnWallpaper = (on) =>
     return 1;
   })()`)
 await poseOnWallpaper(true)
-await send("Page.reload")
-await sleep(3500)
+
+// Real app art on the sample desk: a mock wearing lettered tiles reads as a
+// mockup. icons/ holds the MIT-licensed dashboard-icons set; the marks stay
+// their owners'. Alcove drops imageUrl when it saves, so this goes back in
+// before every reload.
+const ART_FILES = {
+  chrome: "chrome", "chrome-setup": "chrome",
+  vscode: "visual-studio-code",
+  slack: "slack",
+  spotify: "spotify",
+  steam: "steam", "steam-setup": "steam",
+  discord: "discord",
+  figma: "figma",
+  docker: "docker",
+  terminal: "powershell", // sample calls it Windows Terminal; the art is PowerShell's
+  "node-msi": "nodejs",
+  "git-setup": "git",
+  "alcove-zip": "7zip",
+}
+const RENAME = { terminal: "PowerShell" }
+const ART = Object.fromEntries(
+  Object.entries(ART_FILES).map(([id, file]) => [
+    id, "data:image/png;base64," + readFileSync(`icons/${file}.png`).toString("base64"),
+  ]),
+)
+// Alcove strips imageUrl on the way out to keep the saved state small, and
+// re-reads that state a tick after boot — so the art goes on as the state is
+// *read*, on every document, rather than being parked in storage.
+await send("Page.addScriptToEvaluateOnNewDocument", {
+  source: `(() => {
+    const KEY = 'alcove.desktop.v1';
+    const art = ${JSON.stringify(ART)}, names = ${JSON.stringify(RENAME)};
+    const read = Storage.prototype.getItem;
+    Storage.prototype.getItem = function (key) {
+      const raw = read.call(this, key);
+      if (key !== KEY || !raw) return raw;
+      try {
+        const s = JSON.parse(raw);
+        for (const icon of s.icons || []) {
+          if (art[icon.id]) icon.imageUrl = art[icon.id];
+          if (names[icon.id]) icon.name = names[icon.id];
+        }
+        return JSON.stringify(s);
+      } catch { return raw }
+    };
+  })()`,
+})
+
+const reload = async (ms = 3500) => {
+  await send("Page.reload")
+  await sleep(ms)
+}
+
+await reload()
 
 // 1. The first-run screen, before anything is sorted.
 await shot("firstrun", `RECT:(() => {
@@ -141,6 +193,7 @@ const organized = await evaluate(`(() => {
 })()`)
 console.log("organized:", organized)
 await sleep(1500)
+await reload()
 
 const openDrawer = async (name) => {
   await evaluate(`(() => {
@@ -177,8 +230,7 @@ await evaluate(`(() => {
   localStorage.setItem(KEY, JSON.stringify(s));
   return 1;
 })()`)
-await send("Page.reload")
-await sleep(3500)
+await reload()
 
 // 2. The desktop with one drawer open as a compact panel.
 await openDrawer("Documents")
@@ -213,8 +265,7 @@ await evaluate(`(() => {
   localStorage.setItem(KEY, JSON.stringify(s));
   return pool.length;
 })()`)
-await send("Page.reload")
-await sleep(3500)
+await reload()
 await openDrawer("Documents")
 await shot("groups", `RECT:(() => {
   const p = ([...document.querySelectorAll('[data-alcove-id]')].filter(e => !document.querySelector('[data-alcove-strip]').contains(e))[0]).getBoundingClientRect();
@@ -229,8 +280,7 @@ await sleep(600)
 
 // The light/dark pair compares two wallpapers, so it goes back to the stand-ins.
 await poseOnWallpaper(false)
-await send("Page.reload")
-await sleep(3000)
+await reload(3000)
 
 const openSearch = () => evaluate(`(() => {
   const b = [...document.querySelectorAll('button')]
