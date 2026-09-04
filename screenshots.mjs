@@ -3,8 +3,9 @@
 //   node screenshots.mjs
 // Drives the Alcove browser mock over CDP and writes real screenshots.
 // Zero deps: Node's built-in WebSocket + headless Chrome already on the machine.
+// wallpaper.jpg (next to this file) is the picture the mock poses on.
 import { spawn } from "node:child_process"
-import { mkdirSync, writeFileSync, rmSync } from "node:fs"
+import { mkdirSync, writeFileSync, readFileSync, rmSync } from "node:fs"
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe"
 const URL = "http://127.0.0.1:43147/"
@@ -111,7 +112,21 @@ await send("Page.enable")
 await send("Runtime.enable")
 await send("Emulation.setDeviceMetricsOverride", { width: W, height: H, deviceScaleFactor: SCALE, mobile: false })
 await send("Page.navigate", { url: URL })
-await sleep(4000)
+await sleep(2000)
+
+// Pose the mock on a real photo instead of its gradient stand-in: the app reads
+// this key in the browser, paints it as the wallpaper and tints itself from it.
+const WALLPAPER =
+  "data:image/jpeg;base64," + readFileSync("wallpaper.jpg").toString("base64")
+const poseOnWallpaper = (on) =>
+  evaluate(`(() => {
+    ${on ? `localStorage.setItem('alcove.mock.wallpaper', ${JSON.stringify(WALLPAPER)})`
+         : `localStorage.removeItem('alcove.mock.wallpaper')`};
+    return 1;
+  })()`)
+await poseOnWallpaper(true)
+await send("Page.reload")
+await sleep(3500)
 
 // 1. The first-run screen, before anything is sorted.
 await shot("firstrun", `RECT:(() => {
@@ -153,6 +168,17 @@ for (const [drawer, n] of [["Apps", 5], ["Documents", 4], ["Photos", 2], ["Insta
   await sleep(400)
 }
 await sleep(1000)
+
+// The strip sits along the bottom edge, where a dock belongs.
+await evaluate(`(() => {
+  const KEY = 'alcove.desktop.v1';
+  const s = JSON.parse(localStorage.getItem(KEY));
+  s.stripEdge = 'bottom';
+  localStorage.setItem(KEY, JSON.stringify(s));
+  return 1;
+})()`)
+await send("Page.reload")
+await sleep(3500)
 
 // 2. The desktop with one drawer open as a compact panel.
 await openDrawer("Documents")
@@ -200,6 +226,11 @@ await shot("groups", `RECT:(() => {
 // 4. Search, on a clear desktop.
 await openDrawer("Documents") // clicking the open tile again closes it
 await sleep(600)
+
+// The light/dark pair compares two wallpapers, so it goes back to the stand-ins.
+await poseOnWallpaper(false)
+await send("Page.reload")
+await sleep(3000)
 
 const openSearch = () => evaluate(`(() => {
   const b = [...document.querySelectorAll('button')]
