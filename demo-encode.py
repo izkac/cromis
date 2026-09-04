@@ -39,9 +39,12 @@ def save(path, ims, step, **kw):
 
 save("demo.webp", load(1200), 1, quality=72, method=6)
 
-# GIF is 256 colours per frame; a photographic wallpaper dithers badly and gets
-# big, so it goes out smaller and at half the frame rate.
-gif = load(900, step=2)
-pal = gif[len(gif) // 2].quantize(colors=255, method=Image.MEDIANCUT)
-gif = [f.quantize(palette=pal, dither=Image.FLOYDSTEINBERG) for f in gif]
-save("demo.gif", gif, 2, optimize=True)
+# GIF gets 256 colours a frame, and what they are spent on matters more than how
+# many. A palette picked by pixel frequency (MEDIANCUT) is dominated by the
+# wallpaper and turns the app icons grey - Spotify loses its green, node's
+# hexagon goes tan. FASTOCTREE spends colours on the range actually present, so
+# the icons survive; the wallpaper picks up faint banding in exchange, which
+# dithering hides well enough. Per-frame palettes, so each beat gets its own.
+gif = [f.quantize(colors=255, method=Image.FASTOCTREE, dither=Image.FLOYDSTEINBERG)
+       for f in load(1100)]
+save("demo.gif", gif, 1, optimize=True)

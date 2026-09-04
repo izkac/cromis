@@ -77,12 +77,18 @@
         <a class="btn" href="#features">Show me what it does</a>
       </div>
       <figure>
-        <img class="shot" src="img/desktop.webp" width="3200" height="2000" decoding="async"
-             alt="The Alcove desktop on a photograph of a dragonfly: a shelf rail of drawers down the left, the Documents drawer open as a panel, the frequent strip along the bottom edge, and pinned icons above the Recycle Bin in the corner. The rail, strip and drawer are tinted the warm brown of the photograph behind them.">
+        <picture>
+          <!-- A still for anyone who has asked their machine to stop moving things. -->
+          <source media="(prefers-reduced-motion: reduce)" srcset="img/desktop.webp">
+          <source type="image/webp" srcset="img/demo.webp">
+          <img class="shot" src="img/demo.gif" width="1200" height="750" decoding="async"
+               alt="A recording of the Alcove desktop on a photograph of a dragonfly: the Photos drawer opens from the shelf rail as a small panel, a second click opens Documents as a full canvas with named rows, and the search window opens over the wallpaper with a query typed into it. The rail, strip and drawers are tinted the warm brown of the photograph behind them.">
+        </picture>
         <figcaption><span class="fig-no">Fig. 1</span>
-        <span>The shelf rail down the left, one drawer open, the frequent strip along the
-        bottom edge, pinned icons and the Recycle Bin tucked in the corner. Alcove on a sample
-        desktop, wearing the warm brown it read out of the photograph behind it.</span></figcaption>
+        <span>Ten seconds of it: a drawer opens from the rail as a panel, a second
+        click shuts it and spreads Documents into a canvas with named rows, then search comes up
+        over the wallpaper. Alcove on a sample desktop, wearing the warm brown it read out of the
+        photograph behind it.</span></figcaption>
       </figure>
     </div>
   </section>
