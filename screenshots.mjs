@@ -75,13 +75,29 @@ const union = (selectors, pad = 0) => `RECT:(() => {
                  height: Math.max(...r.map(b => b.bottom)) + ${pad} - y };
 })()`
 
-async function shot(name, selector, pad = 0, radius = 0) {
+/** Hide everything the desk paints behind the sheet, so a tight crop of a
+ *  rounded panel keeps transparent corners instead of four wallpaper crumbs. */
+const bareDesk = (on) => evaluate(`(() => {
+  const bg = ${on} ? 'transparent' : '';
+  document.documentElement.style.background = bg;
+  document.body.style.background = bg;
+  for (const el of document.querySelectorAll('[aria-hidden]'))
+    if (typeof el.className === 'string' && el.className.includes('-z-10'))
+      el.style.display = ${on} ? 'none' : '';
+  return 1;
+})()`)
+
+async function shot(name, selector, pad = 0, bare = false) {
   await evaluate(`(() => {
     let st = document.getElementById('shot-css');
     if (!st) { st = document.createElement('style'); st.id = 'shot-css'; document.head.append(st); }
     st.textContent = '[data-sonner-toaster]{display:none!important}';
     return 1;
   })()`)
+  if (bare) {
+    await bareDesk(true)
+    await send("Emulation.setDefaultBackgroundColorOverride", { color: { r: 0, g: 0, b: 0, a: 0 } })
+  }
   const params = { format: "webp", quality: 92, captureBeyondViewport: false }
   if (selector) {
     const box = await evaluate(selector.startsWith("RECT:")
@@ -105,7 +121,10 @@ async function shot(name, selector, pad = 0, radius = 0) {
   const buf = Buffer.from(data, "base64")
   writeFileSync(`${OUT}/${name}.webp`, buf)
   console.log(`  + ${name}.webp  ${(buf.length / 1024).toFixed(0)} kB`)
-  void radius
+  if (bare) {
+    await send("Emulation.setDefaultBackgroundColorOverride")
+    await bareDesk(false)
+  }
 }
 
 await send("Page.enable")
@@ -301,14 +320,14 @@ const typeSearch = (text) => evaluate(`(() => {
 
 await openSearch()
 await sleep(1200)
-await shot("search-panel", `document.querySelector('[cmdk-root]')`, 0)
+await shot("search-panel", `document.querySelector('[cmdk-root]')`, 0, true)
 // The same sheet with the wallpaper around it: this is the light half of the pair.
 await shot("sheet-light", `document.querySelector('[cmdk-root]')`, 70)
 
 // 5. The command palette behind `>`.
 await typeSearch(">")
 await sleep(800)
-await shot("commands", `document.querySelector('[cmdk-root]')`, 0)
+await shot("commands", `document.querySelector('[cmdk-root]')`, 0, true)
 
 // 6. The dark half: the identical sheet over a dark wallpaper. `?dark` swaps the
 //    mock's stand-in wallpaper; the desk state is already in localStorage.
