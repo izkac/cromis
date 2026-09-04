@@ -84,6 +84,9 @@ const bareDesk = (on) => evaluate(`(() => {
   for (const el of document.querySelectorAll('[aria-hidden]'))
     if (typeof el.className === 'string' && el.className.includes('-z-10'))
       el.style.display = ${on} ? 'none' : '';
+  // The dialog's own scrim is what corners land on: half-black over nothing.
+  for (const el of document.querySelectorAll('[data-slot="dialog-overlay"]'))
+    el.style.display = ${on} ? 'none' : '';
   return 1;
 })()`)
 
