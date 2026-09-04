@@ -73,6 +73,8 @@ await send("Emulation.setDeviceMetricsOverride", { width: W, height: H, deviceSc
 
 // --- the same posing screenshots.mjs does, so the clip shows the sample desk --
 const WALLPAPER = "data:image/jpeg;base64," + readFileSync("wallpaper.jpg").toString("base64")
+const WALLPAPER_LIGHT =
+  "data:image/jpeg;base64," + readFileSync("wallpaper-light.jpg").toString("base64")
 const ART_FILES = {
   chrome: "chrome", "chrome-setup": "chrome", vscode: "visual-studio-code", slack: "slack",
   spotify: "spotify", steam: "steam", "steam-setup": "steam", discord: "discord",
@@ -215,7 +217,23 @@ const typeSearch = (text) => evaluate(`(() => {
   return true;
 })()`)
 for (const t of ["b", "bu", "bud", "budg", "budge", "budget"]) { await typeSearch(t); await sleep(160) }
-await sleep(2200)
+await sleep(1900)
+
+// Close search and put a drawer back up, so the rail, the strip and an open
+// drawer are all on screen for the finale.
+await evaluate(`document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })), 1`)
+await sleep(700)
+await openDrawer("Documents", 1400)
+
+// The whole point: swap the wallpaper and every surface re-reads its colour.
+// No reload - the app already listens for this, which is how it keeps up when
+// you change the background from Windows itself.
+await evaluate(`(() => {
+  localStorage.setItem('alcove.mock.wallpaper', ${JSON.stringify(WALLPAPER_LIGHT)});
+  window.dispatchEvent(new Event('alcove:wallpaper-changed'));
+  return 1;
+})()`)
+await sleep(3200)
 
 rolling = false
 await recorder
