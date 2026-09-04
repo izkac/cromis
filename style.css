@@ -434,6 +434,12 @@ figure { margin: 0; }
   border: 1px solid var(--rule-strong);
   background: var(--surface-2);
 }
+/* A shot cropped to a rounded panel carries its own edge and transparent
+   corners: a box around it would show as four notches. */
+.shot.bare {
+  border: 0;
+  background: transparent;
+}
 figcaption {
   display: flex;
   gap: 14px;
