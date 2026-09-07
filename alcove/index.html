@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alcove: give every icon a home</title>
-<meta name="description" content="Alcove is a Windows desktop organizer. Named drawers instead of a loose grid of icons: one open at a time, spreading into a canvas when they get crowded, saved per monitor, wearing the colour of your wallpaper.">
+<title>Alcove — Windows desktop icon organizer, free and open source</title>
+<meta name="description" content="Alcove organizes your Windows desktop icons into named drawers instead of a loose grid — one open at a time, saved per monitor, tinted to match your wallpaper. Free, MIT, no account, works offline.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
 <script src="../theme.js"></script>
@@ -19,6 +19,44 @@
 <meta property="og:image:alt" content="The Alcove desktop: a shelf rail of named drawers down the left, the Documents drawer open, and the frequent strip along the bottom, all tinted the warm brown of the wallpaper behind them.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://cromis.org/alcove/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://cromis.org/alcove/#app",
+  "name": "Alcove",
+  "alternateName": "Alcove desktop organizer",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "Desktop organizer",
+  "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+  "softwareVersion": "0.2.9",
+  "datePublished": "2026-09-05",
+  "fileSize": "3.7 MB",
+  "url": "https://cromis.org/alcove/",
+  "downloadUrl": "https://github.com/izkac/alcove/releases",
+  "installUrl": "https://github.com/izkac/alcove/releases",
+  "screenshot": "https://cromis.org/og.jpg",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "description": "Alcove organizes Windows desktop icons into named drawers instead of a loose grid: one open at a time, spreading into a canvas when crowded, saved per monitor, tinted to match your wallpaper.",
+  "featureList": [
+    "Named drawers for desktop icons, one open at a time",
+    "Per-monitor layouts",
+    "Drawers that mirror a real folder, including USB drives",
+    "Global Ctrl+Space search with a command palette",
+    "A frequent strip that fills itself",
+    "Surfaces tinted from the current wallpaper",
+    "No account, no telemetry, works offline"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "publisher": { "@id": "https://cromis.org/#studio" }
+}
+</script>
 </head>
 <body>
 
@@ -37,6 +75,7 @@
       <a href="./" aria-current="page">Alcove</a>
       <a href="#features" class="hide-sm">Features</a>
       <a href="#search" class="hide-sm">Search</a>
+      <a href="vs-fences/" class="hide-sm">vs Fences</a>
       <a href="#licence" class="hide-sm">Licence</a>
       <a href="#get">Get it</a>
       <button class="theme" type="button" data-theme-toggle
@@ -465,6 +504,7 @@
     <span>Alcove is made by <a href="../">Cromis</a> &middot; &copy; 2026 &middot; Doc. 002</span>
     <span class="links">
       <a href="../">Cromis</a>
+      <a href="vs-fences/">Alcove vs Fences</a>
       <a href="https://github.com/izkac/alcove">GitHub</a>
       <a href="mailto:hello@cromis.org">hello@cromis.org</a>
     </span>

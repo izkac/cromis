@@ -661,3 +661,9 @@ footer.site a:hover { color: var(--ink); }
 @media print {
   .masthead nav, .theme, .actions { display: none; }
 }
+
+/* ---- Comparison table (three columns, neither side dimmed) ---------------------- */
+
+table.keys.compare td:last-child { color: inherit; }
+table.keys.compare td:first-child { white-space: normal; width: 26%; }
+table.keys.compare th:not(:first-child) { color: var(--ink); }
