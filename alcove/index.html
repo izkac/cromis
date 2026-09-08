@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alcove — Windows desktop icon organizer, free and open source</title>
-<meta name="description" content="Alcove organizes your Windows desktop icons into named drawers instead of a loose grid — one open at a time, saved per monitor, tinted to match your wallpaper. Free, MIT, no account, works offline.">
+<title>Alcove: free, open-source Windows desktop organizer</title>
+<meta name="description" content="Organize your Windows desktop into named drawers without moving your files. Alcove has per-monitor layouts and Ctrl+Space search. Free, open source, no account.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
 <script src="../theme.js"></script>
-<meta property="og:title" content="Alcove: give every icon a home">
-<meta property="og:description" content="A Windows desktop organizer. Named drawers instead of a loose grid of icons.">
+<meta property="og:title" content="Alcove: organize your desktop into drawers">
+<meta property="og:description" content="Group your Windows desktop icons by project or file type, then close the drawers when you're done. Your files stay where they are. Free and open source, made by Cromis.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cromis.org/alcove/">
 <meta property="og:site_name" content="Cromis">
@@ -38,14 +38,14 @@
   "screenshot": "https://cromis.org/og.jpg",
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
-  "description": "Alcove organizes Windows desktop icons into named drawers instead of a loose grid: one open at a time, spreading into a canvas when crowded, saved per monitor, tinted to match your wallpaper.",
+  "description": "Alcove is a free, open-source Windows desktop organizer by Cromis. Group desktop icons into named drawers without moving files, save a layout for each monitor, and search with Ctrl+Space.",
   "featureList": [
     "Named drawers for desktop icons, one open at a time",
     "Per-monitor layouts",
     "Drawers that mirror a real folder, including USB drives",
     "Global Ctrl+Space search with a command palette",
-    "A frequent strip that fills itself",
-    "Surfaces tinted from the current wallpaper",
+    "A shortcut strip for frequently opened apps and files",
+    "Colours matched to the current wallpaper",
     "No account, no telemetry, works offline"
   ],
   "offers": {
@@ -97,23 +97,21 @@
         <span><span class="doc-no">DOC. 002</span> &nbsp;Alcove / what it is, and how it works</span>
         <span>Rev. 2026 &nbsp;·&nbsp; <span class="doc-no">Version 0.2.9</span></span>
       </p>
-      <h1>Give every icon a home.</h1>
-      <p class="lede">Let's be honest, your Desktop is where files go to be forgotten. Alcove
-      swaps that loose grid for named drawers we call <em>Alcoves</em>. They open one at a time,
-      spread out into a full canvas once they get crowded, and keep their own arrangement on
-      every monitor you own. Each one borrows its light and its tint from the wallpaper sitting
-      behind it. Underneath all that, Alcove is reading the real files on your Windows Desktop
-      and opening them with the real Windows shell, so nothing gets copied or moved anywhere
-      unless you move it.</p>
+      <h1>Organize your desktop into drawers.</h1>
+      <p class="lede">Alcove is a free Windows desktop organizer made by Cromis.
+      Put your work documents in one drawer, app shortcuts in another, or group everything
+      for a project together. One drawer opens at a time. Close it when you're done.
+      Your files stay where they are. Alcove changes how you see them on the desktop,
+      with a layout for each monitor and colours that match your wallpaper.</p>
       <dl class="facts">
         <div><dt>Platform</dt><dd>Windows 10 and 11, 64-bit</dd></div>
-        <div><dt>Config</dt><dd><code>%APPDATA%\com.alcove.desktop\desktop.json</code></dd></div>
-        <div><dt>Network</dt><dd>Doesn't need one</dd></div>
-        <div><dt>Account</dt><dd>Never</dd></div>
+        <div><dt>Price</dt><dd>Free, MIT licensed</dd></div>
+        <div><dt>Offline</dt><dd>Organize and open local files</dd></div>
+        <div><dt>Account</dt><dd>None needed</dd></div>
       </dl>
       <div class="actions">
-        <a class="btn btn-primary" href="#get">Get Alcove</a>
-        <a class="btn" href="#features">Show me what it does</a>
+        <a class="btn btn-primary" href="#get">Download Alcove</a>
+        <a class="btn" href="#features">See how it works</a>
       </div>
       <figure>
         <picture>
@@ -121,13 +119,11 @@
           <source media="(prefers-reduced-motion: reduce)" srcset="img/desktop.webp">
           <source type="image/webp" srcset="img/demo.webp">
           <img class="shot" src="img/demo.gif" width="1200" height="750" decoding="async"
-               alt="A recording of the Alcove desktop on a photograph of a dragonfly: the Photos drawer opens from the shelf rail as a small panel, a second click opens Documents as a full canvas with named rows, and the search window opens over the wallpaper. Then the wallpaper is changed to a pale blue and pink one and the rail, strip and drawer all turn from dark slate to light paper to match it.">
+                alt="Alcove demo: opening the Photos and Documents drawers, using search, and changing the wallpaper. The drawers and shortcut strip change from dark grey to light blue to match.">
         </picture>
         <figcaption><span class="fig-no">Fig. 1</span>
-        <span>Fifteen seconds of it: a drawer opens from the rail as a panel, a
-        second click shuts it and spreads Documents into a canvas with named rows, then search.
-        At the end the wallpaper changes, and every surface reads its colour again without a
-        reload &mdash; slate becomes paper because the picture behind it did.</span></figcaption>
+        <span>A 15-second demo of drawers, search and a wallpaper change.
+        Alcove's colours update with the wallpaper.</span></figcaption>
       </figure>
     </div>
   </section>
@@ -137,31 +133,28 @@
       <p class="sec-head">
         <span class="sec-no">01</span>
         <span class="sec-kicker">What it does</span>
-        <span class="sec-tag">Four things</span>
+        <span class="sec-tag">Drawers and shortcuts</span>
       </p>
-      <h2>It organizes your desktop and leaves the rest of Windows alone.</h2>
-      <p class="sec-sub">Alcove paints itself onto the desktop where Explorer's icon grid used
-      to be. Everything else about Windows carries on exactly as it always did.</p>
+      <h2>A place for the files you're working with.</h2>
+      <p class="sec-sub">Alcove replaces the desktop icon grid with named drawers.
+      Your taskbar and apps work as usual, and you can return to the standard Windows desktop.</p>
 
       <div class="entries">
 
         <article class="entry">
           <div class="entry-text">
             <p class="entry-no">1.1</p>
-            <h3>It tidies up what you've already got</h3>
-            <p class="entry-body">The first time you run it, Alcove has a look at your Desktop
-            and offers to sort everything into Apps, Documents, Photos, Folders and Installers.
-            Would you rather do it yourself? Then it starts with one empty Inbox and waits.
-            Either way, the Inbox catches everything from then on. Alcove keeps an eye on the
-            Desktop folder, so when a browser, an installer or an unzipped archive drops
-            something in there, it turns up in the Inbox on its own a couple of seconds later.
-            Same goes for anything you drag back out onto empty wallpaper.</p>
+            <h3>Start with the icons you already have</h3>
+            <p class="entry-body">On first run, Alcove offers to sort your desktop icons into
+            Apps, Documents, Photos, Folders and Installers. You can also sort them yourself.
+            New files saved to the Desktop appear in the Inbox, ready for you to put in a drawer.
+            Drag an icon onto empty wallpaper to return it to the Inbox.</p>
           </div>
           <figure class="entry-art">
             <img class="shot" src="img/firstrun.webp" width="1024" height="1060" loading="lazy" decoding="async"
                  alt="Alcove's first-run screen offering to sort 34 desktop icons into named groups: Apps, Client A, Documents, Photos, each with a count and a colour.">
             <figcaption><span class="fig-no">Fig. 2</span>
-            <span>First run: 34 icons, offered up for sorting into named groups.</span></figcaption>
+            <span>First-run setup, with suggested groups for 34 desktop icons.</span></figcaption>
           </figure>
         </article>
 
@@ -169,12 +162,10 @@
           <div class="entry-text">
             <p class="entry-no">1.2</p>
             <h3>One drawer open at a time</h3>
-            <p class="entry-body">Click a tile in the rail and the drawer opens. Click it again
-            and it closes. Opening a second one shuts the first, so your wallpaper spends most
-            of its life uncluttered. Every tile shows the drawer's name and how many things are
-            in it, and hovering over one tells you how much disk space it's quietly eating and
-            which drawer is the worst offender. Want them in a different order? Drag a tile up
-            or down.</p>
+            <p class="entry-body">Your drawers sit in a rail along the side of the desktop.
+            Click a drawer to open it. Click again to close it, or open another drawer to switch.
+            Each tile shows a name and item count. Hover to check disk usage, and drag tiles
+            up or down to put them in the order you want.</p>
           </div>
           <figure class="entry-art">
             <img class="shot" src="img/drawer.webp" width="1484" height="658" loading="lazy" decoding="async"
@@ -187,31 +178,29 @@
         <article class="entry">
           <div class="entry-text">
             <p class="entry-no">1.3</p>
-            <h3>It grows into a canvas when it needs to</h3>
-            <p class="entry-body">A small drawer opens as a compact panel. Once it's carrying
-            more than twelve things it spreads out across the desktop instead, where you can
-            give the rows names and drag icons between them. If you prefer one shape over the
-            other, the drawer header lets you pin it either way, and Alcove remembers.</p>
+            <h3>Room for larger projects</h3>
+            <p class="entry-body">Drawers with up to twelve items open as compact panels.
+            Larger ones spread across the desktop as a canvas, with rows you can name:
+            This week, Client A, or whatever makes sense for your work. Drag icons between rows
+            to organize them. You can also choose either view in the drawer header and keep it.</p>
           </div>
           <figure class="entry-art">
             <img class="shot" src="img/groups.webp" width="2960" height="964" loading="lazy" decoding="async"
                  alt="A large drawer spread across the desktop as a canvas, with named rows: This week, Client A, and Everything else.">
             <figcaption><span class="fig-no">Fig. 4</span>
-            <span>A drawer past twelve items, spread out as a canvas with named rows.</span></figcaption>
+            <span>A large drawer in canvas view, organized into named rows.</span></figcaption>
           </figure>
         </article>
 
         <article class="entry full">
           <div class="entry-text">
             <p class="entry-no">1.4</p>
-            <h3>A strip that fills itself</h3>
-            <p class="entry-body">The frequent strip runs along the top or bottom edge and fills
-            itself with whatever you actually open. You never have to curate it. Scores halve
-            every couple of weeks so old habits quietly fade out, and a newcomer has to beat the
-            weakest slot by half again before it's allowed to take the place. Once something has
-            a slot it stays put even as the ranking shifts around underneath, so nothing ever
-            slides out from under your cursor mid-click. Want one nailed down? There's
-            <em>Keep in this slot</em>. Never want to see one again? You can ban it.</p>
+            <h3>Keep your usual apps and files close</h3>
+            <p class="entry-body">The frequent strip sits at the top or bottom of your desktop
+            and shows what you open most. It adjusts as your habits change, giving less weight
+            to older activity. Items keep their slots while their rankings change, so shortcuts
+            don't shuffle around as you use them. Choose <em>Keep in this slot</em> to pin
+            something, or ban an item you don't want in the strip.</p>
           </div>
           <figure class="entry-art">
             <img class="shot" src="img/strip.webp" width="1574" height="206" loading="lazy" decoding="async"
@@ -230,44 +219,37 @@
       <p class="sec-head">
         <span class="sec-no">02</span>
         <span class="sec-kicker">The look</span>
-        <span class="sec-tag">Straight from your wallpaper</span>
+        <span class="sec-tag">Light and dark</span>
       </p>
       <h2>It takes its colour from your wallpaper.</h2>
-      <p class="sec-sub">Before Alcove paints a single pixel it has a look at the picture behind
-      it. A light wallpaper gets paper-coloured surfaces. A dark one gets slate. Both lean gently
-      toward whichever hue dominates the image, by a small enough amount that you'd struggle to
-      call it a colour. A mostly grey photo with one red car parked in it stays grey. A blue sky
-      comes out blue.</p>
-      <p class="sec-sub" style="margin-top:14px">The rail, the frequent strip and the open
-      drawers all share one see-through wash, so they sit <em>inside</em> the picture rather than
-      floating above it as obvious panels. Anything you actually have to read closely stays
-      solid. Dialogs, right-click menus and the search sheet are dark enough to read comfortably
-      on a dark wallpaper, and they will never blind you with glare-white on a light one.</p>
+      <p class="sec-sub">A blue wallpaper gives Alcove a blue tint. A dark photo gives it
+      darker panels. The colour comes from the image as a whole, so a small bright detail
+      won't set the colour for the entire desktop.</p>
+      <p class="sec-sub" style="margin-top:14px">The rail, frequent strip and drawers let some
+      of the wallpaper show through. Search, menus and dialogs use solid backgrounds so the
+      picture doesn't interfere with the text.</p>
 
       <div class="cols cols-2 pair">
         <figure>
           <img class="shot" src="img/sheet-light.webp" width="1304" height="1176" loading="lazy" decoding="async"
                alt="Alcove's search sheet on a blue wallpaper: the sheet is tinted the same blue, dark text on light paper.">
           <figcaption><span class="fig-no">Fig. 6</span>
-          <span>The same sheet on a light wallpaper: tinted paper.</span></figcaption>
+           <span>Search on a light wallpaper, with dark text and a blue tint.</span></figcaption>
         </figure>
         <figure>
           <img class="shot" src="img/sheet-dark.webp" width="1304" height="1176" loading="lazy" decoding="async"
                alt="The same Alcove search sheet on a near-black wallpaper: the sheet is slate grey with light text, identical in layout to the light version.">
           <figcaption><span class="fig-no">Fig. 7</span>
-          <span>And on a dark one: slate. Nothing else about it changed.</span></figcaption>
+           <span>The same search window on a dark wallpaper.</span></figcaption>
         </figure>
       </div>
 
-      <p class="note" style="margin-top:26px">How far all of this leans is up to you.
-      <strong>Surface</strong> in Settings gives you <em>Blend</em>, <em>Tinted</em> (the default)
-      and <em>Solid</em>, which paints the rail, strip and drawers as plain paper or slate.
-      <strong>Text size</strong> scales every label at once, and <strong>Stronger text</strong>
-      darkens the smaller ones for you. Since Alcove is the thing covering your desktop, its
-      right-click menu is now where the wallpaper lives too. <strong>Background</strong> opens a
-      picture picker over your own picture folders, sets what you click as the real Windows
-      wallpaper across every monitor, or clears it for a flat colour. It stays put when Alcove
-      is closed, and Alcove re-tints itself the moment you change it.</p>
+      <p class="note" style="margin-top:26px">In Settings, <strong>Surface</strong> lets you choose
+      <em>Blend</em>, <em>Tinted</em> (the default) or <em>Solid</em>.
+      <strong>Text size</strong> scales the labels, and <strong>Stronger text</strong> gives smaller
+      labels more contrast. To change your wallpaper, right-click the desktop and choose
+      <strong>Background</strong>. Pick an image from your folders or use a flat colour.
+      This changes the Windows wallpaper on every monitor, and it stays after you close Alcove.</p>
     </div>
   </section>
 
@@ -279,24 +261,21 @@
         <span class="sec-tag">Four lists, one window</span>
       </p>
       <h2><kbd>Ctrl</kbd> <kbd>Space</kbd> from anywhere in Windows</h2>
-      <p class="sec-sub">It's a standalone window, so it comes up even when Alcove itself is
-      buried behind other apps. Results are ranked by how often you actually open something
-      rather than by how neatly the name matches, so the thing you use every day wins a close
-      call. A weak match still won't beat a strong one, though, however often you open it.</p>
+      <p class="sec-sub">Open search while you're working in another app, without switching
+      to the desktop first. It finds files, drawers and running windows. When two results
+      match about equally well, the one you use most appears first.</p>
 
       <div class="entries">
 
         <article class="entry">
           <div class="entry-text">
             <p class="entry-no">3.1</p>
-            <h3>Two lists before you type a letter</h3>
-            <p class="entry-body"><strong>Today</strong> is whatever you've changed since
-            midnight. <strong>Frequent</strong> is what you open most. Today holds back to two
-            pictures at the most, so an afternoon of saving wallpapers can't bury the document
-            you were actually writing. Press <kbd>1</kbd>&ndash;<kbd>9</kbd> and one opens
-            without your hand ever leaving the keyboard. Under every name you get the type, the
-            size and when it last changed, which is the whole difference between five files
-            called <code>pexels-70588695</code> and five files you can tell apart.</p>
+            <h3>Get back to a recent file</h3>
+            <p class="entry-body">Before you type, search shows <strong>Today</strong>, for files
+            changed since midnight, and <strong>Frequent</strong>, for things you open most.
+            Press <kbd>1</kbd>&ndash;<kbd>9</kbd> to open a numbered result.
+            File type, size and modification time help you tell similar names apart.
+            Today shows at most two pictures, leaving room for documents after a batch of image downloads.</p>
           </div>
           <figure class="entry-art">
             <img class="shot bare" src="img/search-panel.webp" width="1024" height="896" loading="lazy" decoding="async"
@@ -309,18 +288,17 @@
         <article class="entry flip">
           <div class="entry-text">
             <p class="entry-no">3.2</p>
-            <h3>Type <code>&gt;</code> and the list becomes verbs</h3>
-            <p class="entry-body">New drawer, collapse every drawer, change the wallpaper, open
-            Settings, hide or show the Windows taskbar, empty the Recycle Bin. That last one
-            still goes through Windows' own confirmation, because we would rather not be the
-            reason your files vanished. Each command sits beside the shortcut that already does
-            it, so the palette gently teaches you how to stop needing it.</p>
+            <h3>Type <code>&gt;</code> for commands</h3>
+            <p class="entry-body">Create a drawer, change the wallpaper or open Settings from
+            the search window. Commands also let you collapse drawers, toggle the taskbar
+            and empty the Recycle Bin. Windows still asks for confirmation before emptying it.
+            Keyboard shortcuts are listed beside the commands.</p>
           </div>
           <figure class="entry-art">
             <img class="shot bare" src="img/commands.webp" width="1024" height="618" loading="lazy" decoding="async"
                  alt="Alcove's command palette, reached by typing a greater-than sign: New drawer, Collapse every drawer, Change wallpaper, Settings, Hide or show the Windows taskbar, Empty the Recycle Bin, each with its keyboard shortcut.">
             <figcaption><span class="fig-no">Fig. 9</span>
-            <span>The command palette behind <code>&gt;</code>, every verb with its shortcut.</span></figcaption>
+            <span>Type <code>&gt;</code> to see commands and their keyboard shortcuts.</span></figcaption>
           </figure>
         </article>
 
@@ -329,15 +307,15 @@
       <div class="cols cols-2">
         <ul class="checks">
           <li><strong>Icons</strong>, on the desktop and in every drawer.</li>
-          <li><strong>Running windows.</strong> Pick one and you switch straight to it, which makes <kbd>Ctrl+Space</kbd> an Alt+Tab you can type into.</li>
-          <li><strong>Drawers</strong>, by name. <kbd>Enter</kbd> opens the drawer on whichever screen it lives on.</li>
-          <li><strong>Deeper in your folders.</strong> A drawer pointed at a folder only lists its newest files, so search goes and walks everything underneath as well. It gives up after about half a second and shows you what it found by then, nearest folders first, politely skipping the places nobody ever means: <code>node_modules</code>, <code>AppData</code>, the Recycle Bin.</li>
+          <li><strong>Running windows.</strong> Search by name and select a window to switch to it.</li>
+          <li><strong>Drawers</strong>, by name. <kbd>Enter</kbd> opens the drawer on its monitor.</li>
+          <li><strong>Files inside linked folders.</strong> Search also checks subfolders, starting with the nearest ones. It stops after about half a second and returns what it found, so large folders may have more matches. It skips <code>node_modules</code>, <code>AppData</code> and the Recycle Bin.</li>
         </ul>
         <ul class="checks">
-          <li><strong>Every group is labelled</strong>, so a window never gets mistaken for a file.</li>
-          <li><strong><kbd>Ctrl+Enter</kbd> shows the file in Explorer</strong> rather than opening it, and <kbd>Shift+Enter</kbd> opens the folder around it.</li>
-          <li><strong>You'll never hit a dead end.</strong> A path you typed opens, a web address goes to your browser, a single word runs the way <kbd>Win+R</kbd> would, and there's always a web search waiting at the bottom.</li>
-          <li><strong>It paints in the desk's colour</strong>, so it matches the wallpaper underneath from its very first frame.</li>
+          <li><strong>Labelled results</strong> separate files, windows and drawers.</li>
+          <li><strong><kbd>Ctrl+Enter</kbd> shows the file in Explorer.</strong> Use <kbd>Shift+Enter</kbd> to open its containing folder.</li>
+          <li><strong>Paths, commands and web addresses.</strong> Open a path directly, send a URL to your browser, or run a single-word command as you would with <kbd>Win+R</kbd>. A web search option is also available at the bottom.</li>
+          <li><strong>Matching colours.</strong> Search uses the same wallpaper-based colours as the desktop drawers.</li>
         </ul>
       </div>
     </div>
@@ -347,28 +325,28 @@
     <div class="wrap">
       <p class="sec-head">
         <span class="sec-no">04</span>
-        <span class="sec-kicker">Good behaviour</span>
-        <span class="sec-tag">Playing nicely</span>
+        <span class="sec-kicker">Working with Windows</span>
+        <span class="sec-tag">Files and settings</span>
       </p>
-      <h2>It's a good citizen on your machine.</h2>
-      <p class="sec-sub">A desktop shell that breaks the rest of your machine isn't worth a
-      tidier wallpaper, so we've been careful here.</p>
+      <h2>Your files are still Windows files.</h2>
+      <p class="sec-sub">Alcove reads your Desktop folder and uses Windows to open files.
+      You can also add drawers for other folders, including Downloads and USB drives.</p>
 
       <div class="cols cols-2">
         <ul class="checks">
-          <li><strong>Real files, real shell.</strong> Alcove reads your actual Desktop folder and opens files with their normal Windows associations. The icon you clicked pulses while it loads, so even a slow launch looks like something is happening.</li>
-          <li><strong>A drawer can mirror a real folder.</strong> Point one at Downloads or a project directory and it shows that folder's live contents: icon, list and details views, sortable columns, <kbd>Backspace</kbd> to go back up. You're looking at the folder itself, live.</li>
-          <li><strong>A USB stick gets a drawer of its own.</strong> Plug one in and it turns up on the rail a second later, named after the drive, and browses like any other folder drawer. Its <em>eject</em> button flushes what is still being written and unmounts the drive; if something else has a file open the eject fails and Alcove says which drive it was. Unplugging closes the drawer, and none of them are remembered between runs. Not for you? One switch in Settings.</li>
-          <li><strong>The taskbar keeps working.</strong> Your running apps stay exactly where they always were.</li>
-          <li><strong>The Recycle Bin is still the Recycle Bin.</strong> Right-click it and you get Windows' own menu, just as you'd expect.</li>
-          <li><strong>The wallpaper stays Windows' wallpaper.</strong> Set one from Alcove and it's the real thing, on every monitor, still there after Alcove is closed. Windows' own background settings are one menu item away.</li>
-          <li><strong>Every monitor gets its own desk.</strong> Drawers belong to a screen and can be dragged over to another, and each desk saves its own layout.</li>
+          <li><strong>Your usual apps.</strong> Files open with their Windows file associations. The icon pulses while the app starts.</li>
+          <li><strong>Folder drawers.</strong> Link a drawer to Downloads or a project folder to browse its contents. Choose icons, a list or a details view with sortable columns. Press <kbd>Backspace</kbd> to go up a folder.</li>
+          <li><strong>USB drives.</strong> Plug in a drive and a drawer appears with its name. Use <em>eject</em> to safely unmount it. If a file is still in use, Alcove reports that the drive couldn't be ejected. The drawer closes when you unplug it and isn't saved between runs. You can turn USB drawers off in Settings.</li>
+          <li><strong>The Windows taskbar.</strong> Running apps stay on your normal taskbar.</li>
+          <li><strong>The Recycle Bin.</strong> Right-click it for the standard Windows menu.</li>
+          <li><strong>Wallpaper settings.</strong> You can also open Windows' own background settings from Alcove's menu.</li>
+          <li><strong>Multiple monitors.</strong> Each screen saves its own layout. Drag a drawer to another monitor to move it there.</li>
         </ul>
         <ul class="checks">
-          <li><strong>Nothing moves unless you move it.</strong> Filing an icon into a drawer is Alcove's own bookkeeping. Your file hasn't budged.</li>
-          <li><strong>One file holds your whole setup.</strong> Layout, drawers and pins all live in <code>%APPDATA%\com.alcove.desktop\desktop.json</code>. Delete it and you're back to a fresh desktop, no harm done.</li>
-          <li><strong>There's an emergency exit.</strong> <kbd>Ctrl+Shift+F12</kbd> hands the desktop straight back to Explorer, whatever else happens to be going on at the time.</li>
-          <li><strong>No account, no telemetry.</strong> Alcove works fine with the network unplugged. The only question it ever asks the internet is whether a newer build exists.</li>
+          <li><strong>Grouping doesn't move files.</strong> Assigning a desktop icon to a drawer changes Alcove's layout, not the file's location.</li>
+          <li><strong>Local settings.</strong> Layouts, drawers and pins are saved in <code>%APPDATA%\com.alcove.desktop\desktop.json</code>. Deleting that file resets your Alcove setup without deleting your desktop files.</li>
+          <li><strong>Back to Explorer.</strong> <kbd>Ctrl+Shift+F12</kbd> releases the desktop back to Windows Explorer if you need to stop using Alcove.</li>
+          <li><strong>No account or telemetry.</strong> Organizing and opening local files works offline. Alcove uses the internet to check for and download updates. Web addresses and web searches open in your browser.</li>
         </ul>
       </div>
     </div>
@@ -379,7 +357,7 @@
       <p class="sec-head">
         <span class="sec-no">05</span>
         <span class="sec-kicker">Built for the keyboard</span>
-        <span class="sec-tag">Worth learning</span>
+        <span class="sec-tag">Quick reference</span>
       </p>
       <h2>The shortcuts worth knowing.</h2>
       <table class="keys">
@@ -390,22 +368,21 @@
         <tbody>
           <tr><td><kbd>Ctrl+Space</kbd></td><td>Open search from anywhere in Windows, even when Alcove is behind other apps</td></tr>
           <tr><td><kbd>Ctrl+F</kbd></td><td>Search inside Alcove. <kbd>Enter</kbd> shows you the file on the desktop rather than opening it</td></tr>
-          <tr><td><kbd>1</kbd>&ndash;<kbd>9</kbd> in search</td><td>Open that numbered result, before you've typed anything at all</td></tr>
+          <tr><td><kbd>1</kbd>&ndash;<kbd>9</kbd> in search</td><td>Open a numbered result before typing a search</td></tr>
           <tr><td><kbd>&gt;</kbd> in search</td><td>Turn the list into commands</td></tr>
           <tr><td><kbd>Ctrl+Enter</kbd> in search</td><td>Show the highlighted file in Explorer. <kbd>Shift+Enter</kbd> opens the folder that holds it</td></tr>
           <tr><td><kbd>Ctrl+N</kbd></td><td>New Alcove</td></tr>
           <tr><td><kbd>Ctrl+Shift+H</kbd></td><td>Collapse every drawer</td></tr>
           <tr><td><kbd>Ctrl+V</kbd></td><td>Paste clipboard files into the open drawer's folder, or onto the Desktop</td></tr>
           <tr><td><kbd>Enter</kbd> / <kbd>Delete</kbd></td><td>Open what's selected, or send it to the Recycle Bin</td></tr>
-          <tr><td><kbd>Backspace</kbd></td><td>Go up a level when you've drilled into a folder</td></tr>
+          <tr><td><kbd>Backspace</kbd></td><td>Go up one level in a folder drawer</td></tr>
           <tr><td><kbd>Ctrl+Shift+F12</kbd></td><td>Emergency release: hand the desktop back to Explorer</td></tr>
         </tbody>
       </table>
-      <p class="note">A few more while we're here. Double-click the wallpaper for a new Alcove,
-      or right-click it for Paste, New Alcove, Collapse all and Background. Dragging works about
-      how you'd hope: drop an icon on a drawer to file it, on the corner pins to freeze it in
-      place, on empty wallpaper to send it back to the Inbox, or on an app in the frequent strip
-      to open it with that app instead of its usual one.</p>
+      <p class="note">Double-click the wallpaper to create a drawer, called an Alcove in the app.
+      Right-click for Paste, New Alcove, Collapse all and Background. You can drag an icon onto
+      a drawer to group it, onto the corner pins to keep it in place, or onto empty wallpaper
+      to return it to the Inbox. Drop a file on an app in the frequent strip to open it with that app.</p>
     </div>
   </section>
 
@@ -416,37 +393,32 @@
         <span class="sec-kicker">Licence</span>
         <span class="sec-tag">MIT</span>
       </p>
-      <h2>Free software, in both senses of the word.</h2>
-      <p class="sec-sub">Alcove starts with Windows and effectively becomes your desktop.
-      Something that sits that close to your machine ought to be something you're allowed to
-      read.</p>
+      <h2>Free to use, with the source on GitHub.</h2>
+      <p class="sec-sub">Alcove is released under the MIT licence. You can install it at home
+      or at work, inspect the code and build your own version.</p>
 
       <div class="cols cols-3">
         <article>
-          <p class="col-kicker">Promise 1</p>
-          <h3>Nothing to buy, nothing to key</h3>
-          <p>Every feature, every monitor, on as many machines as you like. No licence key to
-          lose, no time limit, no nag box at startup. There's nothing to activate and nothing
-          that can expire on you.</p>
+          <p class="col-kicker">Cost</p>
+          <h3>All features included</h3>
+          <p>Use Alcove on as many machines and monitors as you like. There's no paid edition,
+          trial period or licence key.</p>
         </article>
         <article>
-          <p class="col-kicker">Promise 2</p>
-          <h3>Read it, change it, pass it on</h3>
-          <p>MIT. Use it, modify it, build it, hand it around, ship it inside something of your
-          own, commercially or otherwise. Keep the copyright notice and the rest is yours.</p>
+          <p class="col-kicker">Permissions</p>
+          <h3>Make it your own</h3>
+          <p>You can modify and redistribute Alcove, including in commercial projects.
+          Keep the copyright and licence notices with any copies you distribute.</p>
         </article>
         <article>
-          <p class="col-kicker">Promise 3</p>
-          <h3>Nothing that can lock you out</h3>
-          <p>No activation server, no phone-home, no check that can quietly fail on a bad day
-          and leave you staring at an empty desktop. Alcove works with the network unplugged.</p>
+          <p class="col-kicker">Activation</p>
+          <h3>No sign-in needed</h3>
+          <p>Install it and use it. Alcove doesn't contact a licence server or require an
+          account, and you can organize your desktop offline.</p>
         </article>
       </div>
 
-      <p class="note">The source is on GitHub, so please do read it, learn from it, check what
-      it's doing to your machine, and build it yourself if you'd rather. Updates are
-      signed, and the app will refuse one that doesn't verify. Alcove is
-      built on Tauri, React and Rust, each under its own licence.</p>
+      <p class="note">Alcove is built with Tauri, React and Rust, each under its own licence.</p>
     </div>
   </section>
 
@@ -455,23 +427,19 @@
       <p class="sec-head">
         <span class="sec-no">07</span>
         <span class="sec-kicker">Download</span>
-        <span class="sec-tag">That's the lot</span>
+        <span class="sec-tag">Windows installer</span>
       </p>
       <div class="status-line">
         <span class="stamp">Version 0.2.9</span>
       </div>
-      <h2 style="margin-top:20px">Alcove 0.2.9 is out.</h2>
-      <p class="sec-sub">Clicking the desk right after Show Desktop no longer covers
-      your app. The last release stopped the desk coming forward on a click, but
-      missed the first one after <kbd>Win+D</kbd>. The desk now holds its place
-      above the wallpaper whatever happens.
-      It's still early days and we'd rather say so. Everything on this page
-      works, and there will be rough edges we haven't run into yet. The installer runs as the
-      current user with no admin rights, adds a Start menu entry, and will start at sign-in if
-      you want it to. After that it updates itself, and you can hand the desktop back to
-      Explorer at any moment with <kbd>Ctrl+Shift+F12</kbd>. On an older build? Alcove offers
-      you this one itself, or you'll find it under Settings &rarr; System &rarr; Updates. If the
-      notice catches you at a bad moment, <em>Later</em> puts it off.</p>
+      <h2 style="margin-top:20px">Download Alcove 0.2.9.</h2>
+      <p class="sec-sub">This release fixes a desktop layering bug: clicking the desktop
+      after <kbd>Win+D</kbd> no longer brings Alcove in front of your app.
+      Alcove is still in early development, and you may run into bugs.</p>
+      <p class="sec-sub">The installer runs under your Windows user without admin rights and
+      adds a Start menu entry. Starting at sign-in is optional. If you're already using
+      Alcove, it will offer the update, or you can check under Settings &rarr; System &rarr;
+      Updates. Choose <em>Later</em> to postpone it.</p>
       <div class="actions">
         <a class="btn btn-primary" href="https://github.com/izkac/alcove/releases/download/v0.2.9/Alcove_0.2.9_x64-setup.exe">Download for Windows &middot; 3.7 MB</a>
         <a class="btn" href="https://github.com/izkac/alcove/releases">Release notes</a>
@@ -484,16 +452,15 @@
         <div><dt>Install</dt><dd>Current user, no admin rights</dd></div>
         <div><dt>Licence</dt><dd>MIT, open source</dd></div>
       </dl>
-      <p class="note">Every update is signed and Alcove refuses one that doesn't verify. The
-      signature sits right beside the download on the
-      <a href="https://github.com/izkac/alcove/releases">releases page</a>. The installer itself
-      is <strong>not code-signed yet</strong>, so Windows SmartScreen will throw up a warning
-      the first time you run it, and you'll want <em>More info &rarr; Run anyway</em>. We'd
-      rather tell you here than have it ambush you. Want to check what you downloaded before
-      you run it? Its SHA-256 is
-      <code>1d1722dd970458e53f899400a49886e4af850d13a067962301b523e27b89a12c</code>, and our
-      <a href="code-signing/">code signing policy</a> sets out who is allowed to sign a release
-      and where the keys live.</p>
+      <p class="note">The installer is <strong>not Windows code-signed yet</strong>, so you may
+      see a SmartScreen warning. If you've checked the download and decide to proceed,
+      choose <em>More info &rarr; Run anyway</em>. Alcove's built-in updater uses a separate
+      signature and rejects updates that fail verification. Signatures are available on the
+      <a href="https://github.com/izkac/alcove/releases">releases page</a>.</p>
+      <p class="note">To check the installer, compare its SHA-256 checksum with
+      <code>1d1722dd970458e53f899400a49886e4af850d13a067962301b523e27b89a12c</code>.
+      Our <a href="code-signing/">code signing policy</a> explains who can sign releases
+      and how the keys are stored.</p>
     </div>
   </section>
 

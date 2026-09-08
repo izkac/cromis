@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cromis — Windows desktop software and developer tools</title>
-<meta name="description" content="Cromis is a small studio making native Windows desktop software and developer tools. Makers of Alcove, the free open-source desktop icon organizer, and ForgeKit. No accounts, no telemetry.">
+<title>Cromis: Windows desktop software and developer tools</title>
+<meta name="description" content="We're a small software studio building Windows desktop apps and developer tools. We make Alcove, a free desktop organizer, and ForgeKit for coding agents.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 <script src="theme.js"></script>
-<meta property="og:title" content="Cromis: software that respects the machine it runs on">
-<meta property="og:description" content="A small studio making desktop software and developer tools. Makers of Alcove, the Windows desktop organizer.">
+<meta property="og:title" content="Cromis: desktop software and developer tools">
+<meta property="og:description" content="We make Alcove, a free Windows desktop organizer, and ForgeKit for coding agents. We also take on desktop, systems and tooling projects for clients.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cromis.org/">
 <meta property="og:site_name" content="Cromis">
@@ -28,7 +28,7 @@
   "url": "https://cromis.org/",
   "email": "hello@cromis.org",
   "logo": "https://cromis.org/favicon.svg",
-  "description": "A small software studio making native Windows desktop software and developer tools.",
+  "description": "A small software studio building Windows desktop apps and developer tools. Makers of Alcove and ForgeKit.",
   "sameAs": ["https://github.com/izkac"]
 }
 </script>
@@ -68,22 +68,21 @@
     <div class="wrap">
       <p class="doc-line">
         <span><span class="doc-no">DOC. 001</span> &nbsp;Cromis / who we are</span>
-        <span>Rev. 2026 &nbsp;·&nbsp; One page, that's all</span>
+        <span>Rev. 2026</span>
       </p>
-      <h1>Software that respects the machine it runs on.</h1>
-      <p class="lede">We're a small studio. We make desktop software and developer tools that start fast,
-      use what Windows already gives you instead of reinventing it, and then leave you alone
-      to get on with your day. You'll never need an account to run something you already
-      installed. Nothing phones home. Your files stay yours, sitting on your own disk exactly
-      where you put them, and none of it needs the internet switched on.</p>
+      <h1>We build desktop software and developer tools.</h1>
+      <p class="lede">Cromis is a small software studio with a particular interest in Windows.
+      We make Alcove, which organizes your desktop into drawers, and ForgeKit, which helps
+      coding agents plan and check their work. Both are free and open source.
+      Alcove needs no account, collects no telemetry, and works offline with local files.</p>
       <dl class="facts">
         <div><dt>Field</dt><dd>Desktop software, dev tools</dd></div>
-        <div><dt>Platform</dt><dd>Windows first, native</dd></div>
-        <div><dt>Network</dt><dd>Doesn't need one</dd></div>
-        <div><dt>Account</dt><dd>Never</dd></div>
+        <div><dt>Platform</dt><dd>Windows first</dd></div>
+        <div><dt>Source</dt><dd>Open, MIT licensed</dd></div>
+        <div><dt>Also</dt><dd>Contract development</dd></div>
       </dl>
       <div class="actions">
-        <a class="btn btn-primary" href="alcove/">Alcove 0.2.9 is out</a>
+        <a class="btn btn-primary" href="alcove/">Explore Alcove</a>
         <a class="btn" href="#principles">How we work</a>
       </div>
     </div>
@@ -94,11 +93,10 @@
       <p class="sec-head">
         <span class="sec-no">01</span>
         <span class="sec-kicker">What we make</span>
-        <span class="sec-tag">Three things</span>
+        <span class="sec-tag">Our projects</span>
       </p>
-      <h2>Three things we're working on.</h2>
-      <p class="sec-sub">Each one does a single job properly, right there on the machine in
-      front of you. Nothing of ours runs in a datacentre somewhere.</p>
+      <h2>Alcove, ForgeKit and what's next.</h2>
+      <p class="sec-sub">Alcove and ForgeKit are available now. Helm is still in development.</p>
 
       <article class="lead-product">
         <div class="row-line">
@@ -106,22 +104,22 @@
           <span class="stamp">Version 0.2.9</span>
           <span class="tagline">Windows desktop organizer</span>
         </div>
-        <p>Give every icon a home. Alcove takes that loose grid of desktop icons and gives them
-        named drawers instead, which open one at a time, spread out into a full canvas once they
-        get crowded, and remember their own arrangement on every monitor you own. They pick up your wallpaper's colour while
-        they're at it. Underneath, Alcove is reading your real
-        Desktop folder and opening things with the real Windows shell, so nothing gets copied or
-        moved anywhere unless you move it yourself.</p>
+        <p>Keep a project's documents in one drawer and your app shortcuts in another.
+        Alcove opens one drawer at a time, so you can find what you need without looking
+        through every icon on your desktop. Name and arrange drawers on each monitor.
+        It matches your wallpaper and
+        lets you search with <kbd>Ctrl+Space</kbd>. The files stay where they are, and opening
+        one still uses its usual Windows app.</p>
         <p class="actions" style="margin-top:20px">
           <a class="btn btn-primary" href="https://github.com/izkac/alcove/releases/download/v0.2.9/Alcove_0.2.9_x64-setup.exe">Download Alcove 0.2.9</a>
-          <a class="btn" href="alcove/">Have a look around</a>
+          <a class="btn" href="alcove/">See Alcove's features</a>
         </p>
         <figure>
           <img class="shot" src="alcove/img/panel.webp" width="1240" height="554"
                loading="lazy" decoding="async"
                alt="An Alcove drawer open on the desktop, tinted the colour of the wallpaper behind it, showing seven documents with their real Windows file icons.">
           <figcaption><span class="fig-no">Fig. 1</span>
-          <span>An Alcove drawer open as a panel: seven documents, wearing their real Windows file icons.</span></figcaption>
+          <span>The Documents drawer, with seven files and their Windows icons.</span></figcaption>
         </figure>
       </article>
 
@@ -129,27 +127,25 @@
         <article id="forgekit">
           <p class="col-kicker">Shipping &middot; MIT &middot; v0.3.54</p>
           <h3>ForgeKit</h3>
-          <p>If you let a coding agent write code for you, you've probably had one cheerfully
-          announce it was finished when it very much wasn't. <strong>Forge</strong> turns a
-          request into a tracked change with a gate at every phase, and a session can't reach
-          done while a test is still stubbed or a capability was never wired up. One command
-          installs it into seven different agents.</p>
-          <p><a href="forgekit/">Have a look at ForgeKit &rarr;</a></p>
+          <p>A coding agent can say it's done while tests are missing or part of the feature
+          is still unconnected. ForgeKit installs <strong>Forge</strong>, a workflow that tracks
+          a change from the first discussion through implementation, testing and review.
+          Checks at each stage help catch unfinished work. It supports seven coding agents.</p>
+          <p><a href="forgekit/">See how ForgeKit works &rarr;</a></p>
         </article>
         <article id="helm">
           <p class="col-kicker">Next tool &middot; in development</p>
           <h3>Helm</h3>
-          <p>Our next tool, still being built. Same rules as Alcove: native, small, no account,
-          nothing phoning home. We'll tell you about it once there's something real to show, because we'd honestly
-          rather be late than spend six months describing a thing that doesn't exist yet.</p>
-          <p><a href="mailto:hello@cromis.org?subject=Tell%20me%20when%20Helm%20lands">Nudge us when Helm lands &rarr;</a></p>
+          <p>Helm is our next tool. It's too early to share a release date or feature list.
+          If you'd like to hear when it's ready, send us an email.</p>
+          <p><a href="mailto:hello@cromis.org?subject=Tell%20me%20when%20Helm%20lands">Ask about Helm &rarr;</a></p>
         </article>
         <article>
           <p class="col-kicker">For clients</p>
           <h3>Contract work</h3>
-          <p>We take on desktop, systems and tooling work. Rust, TypeScript, Delphi, and the
-          awkward Windows integration everyone else quietly hopes somebody else will pick up.
-          Drop us a line at <a href="mailto:hello@cromis.org">hello@cromis.org</a>.</p>
+          <p>We also build software for clients, working in Rust, TypeScript and Delphi.
+          Desktop apps, systems work and Windows integration are our main areas.
+          Tell us what you're building at <a href="mailto:hello@cromis.org">hello@cromis.org</a>.</p>
         </article>
       </div>
     </div>
@@ -160,33 +156,33 @@
       <p class="sec-head">
         <span class="sec-no">02</span>
         <span class="sec-kicker">How we work</span>
-        <span class="sec-tag">Three rules</span>
+        <span class="sec-tag">What we care about</span>
       </p>
-      <h2>We'd rather finish three things than start ten.</h2>
-      <p class="sec-sub">Three rules we keep coming back to, and haven't yet found a good
-      reason to break.</p>
+      <h2>How we build our tools.</h2>
+      <p class="sec-sub">We care about details like where a file goes when you delete it,
+      how you get back to your usual desktop, and what still works without an internet connection.</p>
 
       <div class="cols cols-3">
         <article>
-          <p class="col-kicker">Rule 01</p>
-          <h3>Let Windows be Windows</h3>
-          <p>If the platform already does the job, we let it. Real file associations. The real
-          Recycle Bin. The real taskbar. We'd rather tidy up what's already on your machine than
-          build a convincing copy of it and hope you never notice the seams.</p>
+          <p class="col-kicker">Windows integration</p>
+          <h3>Use what's already in Windows</h3>
+          <p>Alcove opens files in their usual apps and sends deleted files to the Windows
+          Recycle Bin. Your taskbar keeps working. Those familiar behaviours matter when
+          you're changing something you use every day.</p>
         </article>
         <article>
-          <p class="col-kicker">Rule 02</p>
-          <h3>Small surfaces</h3>
-          <p>Fewer features, each one actually finished. We don't ship half-built things behind
-          a feature flag, and we don't keep something around just because pulling it back out
-          would be a hassle.</p>
+          <p class="col-kicker">Scope</p>
+          <h3>Keep the job manageable</h3>
+          <p>Each tool has a specific job. For Alcove, that's organizing the desktop and
+          finding what's on it. It's still early software, so we publish release notes and
+          call out known limitations alongside the download.</p>
         </article>
         <article>
-          <p class="col-kicker">Rule 03</p>
+          <p class="col-kicker">Local files</p>
           <h3>Your files stay yours</h3>
-          <p>You shouldn't need an account to use software sitting on your own hard drive. So
-          there's no sign-in, no telemetry, no quiet round-trip to a server, and nothing copied
-          or moved behind your back. Unplug the network and everything still works.</p>
+          <p>Putting an icon in an Alcove drawer doesn't move the file. Your layout is saved
+          locally, and organizing and opening local files works offline. Alcove has no
+          account or telemetry. It connects to check for and download updates.</p>
         </article>
       </div>
     </div>
@@ -199,15 +195,13 @@
         <span class="sec-kicker">Licence</span>
       </p>
       <div class="band-inner" style="margin-top:22px">
-        <h2>It's MIT, and we mean it properly.</h2>
+        <h2>Free to use. Source included.</h2>
         <div>
-          <p class="sec-sub" style="margin-top:0">Both Cromis tools are <strong>MIT</strong>.
-          Every feature, on every machine, with no key to type in, no time limit, no nag box at
-          startup, and no activation server that can have a bad day and lock you out of your own
-          desktop. Read the source. Build it yourself. Fork it, ship it inside something of your
-          own. You're not renting permission to run what you already installed.</p>
-          <p class="sec-sub">What we actually charge for is
-          <a href="#products">contract work</a>.</p>
+          <p class="sec-sub" style="margin-top:0">Alcove and ForgeKit are released under the
+          <strong>MIT licence</strong>. You can use them at work or at home, change the source,
+          and include them in your own projects. Keep the copyright and licence notices when
+          you redistribute them. There are no paid tiers or licence keys.</p>
+          <p class="sec-sub">Our paid work is <a href="#products">contract development</a>.</p>
           <p class="actions" style="margin-top:24px">
             <a class="btn" href="alcove/#licence">The Alcove licence</a>
             <a class="btn" href="forgekit/#licence">The ForgeKit licence</a>

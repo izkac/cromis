@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alcove: code signing policy</title>
-<meta name="description" content="Who is allowed to sign an Alcove release, where the keys live, what we will and won't put our name on, and what the signed build does to your machine.">
+<meta name="description" content="Alcove's update signatures, key handling and release approval policy. The Windows installer is not Authenticode-signed yet and may trigger a SmartScreen warning.">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../style.css">
 <script src="../../theme.js"></script>
 <meta property="og:title" content="Alcove: code signing policy">
-<meta property="og:description" content="Who is allowed to sign an Alcove release, where the keys live, and what we will and won't put our name on.">
+<meta property="og:description" content="How Cromis handles Alcove's update signatures and release approvals. Windows code signing is still pending, so the installer may trigger a SmartScreen warning.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cromis.org/alcove/code-signing/">
 <meta property="og:site_name" content="Cromis">
@@ -59,25 +59,21 @@
         <span>Rev. 2026 &nbsp;&middot;&nbsp; <span class="doc-no">Version 0.2.9</span></span>
       </p>
       <h1>Who can sign Alcove, and how.</h1>
-      <p class="lede">Alcove starts with Windows and takes over the desktop. A
-      signature on it is a claim that the thing you are about to run is the thing we built, from
-      the source you can read. This page says who is allowed to make that claim, where the keys
-      that make it live, and what we will not put our name on. It exists because we ask you to
-      trust a signature, and a signature nobody explains is just a checkbox.</p>
+      <p class="lede">Alcove is Cromis's Windows desktop organizer. It can start at sign-in and
+      replaces Explorer's desktop icon view. This policy covers who approves releases, how
+      signing keys are held and which builds we will sign. Update signatures are in use.
+      Windows code signing is still pending.</p>
       <dl class="facts">
         <div><dt>Project</dt><dd>Alcove, <a href="https://github.com/izkac/alcove">github.com/izkac/alcove</a></dd></div>
         <div><dt>Licence</dt><dd>MIT, no dual-licensing</dd></div>
         <div><dt>Contact</dt><dd><a href="mailto:hello@cromis.org">hello@cromis.org</a></dd></div>
       </dl>
-      <p class="note">Where this stands today: Alcove is
-      <strong>not Authenticode-signed</strong>. We applied for a free certificate under an
-      open-source signing programme and were turned down: they sign established projects, and
-      Alcove is too new to count as one yet. That is a fair answer to a fair question, and it
-      makes the route back an obvious one &mdash; we need more people using Alcove before we can
-      ask again. Stars on the repository and installs on real machines are what that is measured
-      in, so if you want the warning gone, using the thing is the way to help. The policy below
-      governs signing whenever it happens, not a certificate we hold. Nothing here describes a
-      protection you have today.</p>
+      <p class="note">The current installer is <strong>not Authenticode-signed</strong>, so
+      Windows SmartScreen may warn when you first run it. Our application for a free certificate
+      through an open-source signing programme was declined because Alcove is too new to meet
+      its established-project requirement. Repository stars and installs are measures of usage
+      for a future application. The Windows signing requirements below apply to future
+      Authenticode-signed builds.</p>
     </div>
   </section>
 
@@ -88,11 +84,10 @@
         <span class="sec-kicker">Roles</span>
         <span class="sec-tag">A short list</span>
       </p>
-      <h2>One maintainer, and we'd rather say so.</h2>
-      <p class="sec-sub">Alcove is written by one person in their own time. Pretending
-      otherwise would be the first dishonest thing on this page. So the roles below are held by
-      the same human, and the separation that a larger project gets from having several pairs of
-      eyes, this one gets from building in public, on a public pipeline, from public source.</p>
+      <h2>One maintainer holds all three roles.</h2>
+      <p class="sec-sub">Alcove is written by one person in their own time. The same maintainer
+      writes the code, reviews the installer and approves releases. The source and build
+      pipeline are public, but there is no independent reviewer or approver.</p>
       <table class="keys">
         <caption>Signing roles for Alcove releases</caption>
         <thead>
@@ -104,10 +99,10 @@
           <tr><td>Approver</td><td>The maintainer. The only person who may approve a signing request or publish a release.</td></tr>
         </tbody>
       </table>
-      <p class="note">Should anyone else ever gain the ability to approve a signing
-      request, this page changes on the same day, and the change is in the site's git history
-      where you can see it. Multi-factor authentication is required on the source repository for
-      every one of those roles, and on the signing service once there is one to require it on.</p>
+      <p class="note">If another person gains signing approval rights, we'll update this page
+      that day. The change will be recorded in the site's git history. Multi-factor
+      authentication is required for every role on the source repository and will be required
+      on the signing service once one is in use.</p>
     </div>
   </section>
 
@@ -116,37 +111,37 @@
       <p class="sec-head">
         <span class="sec-no">02</span>
         <span class="sec-kicker">Keys</span>
-        <span class="sec-tag">Two of them</span>
+        <span class="sec-tag">Updates and Windows signing</span>
       </p>
       <h2>Where the keys live.</h2>
-      <p class="sec-sub">Alcove carries two separate signatures, and they answer
-      different questions. Neither key is in the repository, and neither is on a build machine we
-      don't control.</p>
+      <p class="sec-sub">Alcove uses a key to sign updates. A separate Authenticode certificate,
+      once obtained, will identify the publisher to Windows. Private keys are kept out of the
+      repository and may only be used on build machines we control.</p>
       <div class="cols cols-2">
         <div>
           <p class="col-kicker">Key 1</p>
           <h3>The update key</h3>
-          <p>A minisign key that signs every update artifact. Alcove refuses an
-          update that doesn't verify against the public half, which is printed in
-          <code>tauri.conf.json</code> for you to check. The private half is held offline by the
-          maintainer, has never been in the repository, and cannot be regenerated: if it were
-          lost, existing installs would simply stop accepting updates rather than start accepting
-          the wrong ones.</p>
+          <p>A minisign key signs every update artifact. Alcove only accepts updates that
+          verify against the public key in <code>tauri.conf.json</code>. The maintainer holds
+          the private key offline. It has never been in the repository and cannot be regenerated.
+          If it were lost, we couldn't sign further updates that existing installs would
+          accept. A replacement key would not match their stored public key.</p>
         </div>
         <div>
           <p class="col-kicker">Key 2</p>
           <h3>The Windows signature</h3>
-          <p>Authenticode, the one that decides what the UAC dialog says about the
-          publisher. <strong>Alcove is not Authenticode-signed</strong>, and the download page
-          says so plainly rather than letting Windows break the news. When we do get a
-          certificate, it and the publisher name it shows are documented here before the first
-          signed build ships. Until then this paragraph stays as it is.</p>
+          <p>Authenticode identifies the publisher in Windows dialogs such as UAC.
+          <strong>Alcove is not Authenticode-signed</strong>, as noted on the download page.
+          Update signatures do not replace Windows code signing or remove the SmartScreen
+          warning. We'll document the certificate and publisher name here before the first
+          Authenticode-signed build ships.</p>
         </div>
       </div>
-      <p class="note">Version 0.2.4 is the first release built by GitHub Actions
-      from a tagged commit, rather than on a laptop. It carries a build attestation you can
-      verify against this repository, and its SHA-256 sits beside the download. Anything 0.2.3
-      or older was built by hand, and only the checksum vouches for it.</p>
+      <p class="note">Version 0.2.4 was the first release built by GitHub Actions from a tagged
+      commit. It includes a build attestation you can verify against the repository and a
+      SHA-256 checksum beside the download. Releases 0.2.3 and older were built manually and
+      have only a checksum, which lets you compare the file with the published download but
+      does not verify how it was built.</p>
     </div>
   </section>
 
@@ -155,29 +150,27 @@
       <p class="sec-head">
         <span class="sec-no">03</span>
         <span class="sec-kicker">Scope</span>
-        <span class="sec-tag">Ours only</span>
+        <span class="sec-tag">Alcove releases</span>
       </p>
-      <h2>What we will and won't sign.</h2>
+      <h2>Which builds qualify for signing.</h2>
       <div class="cols cols-3">
         <div>
           <p class="col-kicker">Will</p>
-          <h3>Our own builds, our own source</h3>
-          <p>Only binaries built by our own pipeline from our own repository, at a
-          commit that exists in public history. Nothing gets signed on request, on behalf of
-          anyone else, or because it arrived by email.</p>
+          <h3>Builds from our public repository</h3>
+          <p>We only sign binaries built by our pipeline from a commit in our repository's
+          public history. We don't sign files supplied by others or sign on their behalf.</p>
         </div>
         <div>
           <p class="col-kicker">Won't</p>
           <h3>Anything that attacks a machine</h3>
-          <p>No hacking tools, no code whose purpose is exploiting a vulnerability,
-          no bundled adware, no third-party payload riding along with the installer. Alcove ships
-          Alcove.</p>
+          <p>Signing excludes hacking tools, code designed to exploit vulnerabilities, adware
+          and third-party payloads bundled with the installer.</p>
         </div>
         <div>
           <p class="col-kicker">Won't</p>
-          <h3>Anything we can't read</h3>
-          <p>No obfuscated or closed components. Every part of what we sign is MIT
-          and readable, apart from the platform libraries Windows itself provides.</p>
+          <h3>Obfuscated or closed components</h3>
+          <p>The policy requires every component we sign to have readable, MIT-licensed source,
+          apart from the platform libraries Windows itself provides.</p>
         </div>
       </div>
     </div>
@@ -188,27 +181,26 @@
       <p class="sec-head">
         <span class="sec-no">04</span>
         <span class="sec-kicker">Privacy</span>
-        <span class="sec-tag">Nothing to report</span>
+        <span class="sec-tag">Data and removal</span>
       </p>
-      <h2>What the signed build does to your machine.</h2>
-      <p class="sec-sub">A signature says who built it. It doesn't say what the thing
-      does, so here is that too.</p>
+      <h2>What Alcove stores and how to remove it.</h2>
+      <p class="sec-sub">These behaviours apply to the current build, regardless of its
+      Windows signing status.</p>
       <div class="cols cols-2">
         <div>
           <p class="col-kicker">Data</p>
-          <h3>None leaves</h3>
-          <p>No account, no telemetry, no analytics, no crash reporting. Alcove works
-          with the network unplugged. The only question it ever asks the internet is whether a
-          newer build exists, and you can see that request in the source. Your layout lives in one
-          file on your own disk, at
+          <h3>Your layout stays on your disk</h3>
+          <p>Alcove works offline and requires no account. It has no telemetry, analytics or
+          crash reporting. Its network use is limited to checking for and downloading updates,
+          and you can inspect that code in the repository. Your layout is stored locally at
           <code>%APPDATA%\com.alcove.desktop\desktop.json</code>.</p>
         </div>
         <div>
           <p class="col-kicker">Removal</p>
-          <h3>It leaves when you tell it to</h3>
+          <h3>Uninstall through Windows</h3>
           <p>The installer runs as the current user, needs no admin rights, and
-          uninstalls from Windows' own Apps list. Uninstalling removes the sign-in entry with it.
-          <kbd>Ctrl+Shift+F12</kbd> hands the desktop back to Explorer at any moment, without
+          uninstalls from Windows' Apps list. Uninstalling also removes the sign-in entry.
+          <kbd>Ctrl+Shift+F12</kbd> restores Explorer's desktop at any time, without
           uninstalling anything.</p>
         </div>
       </div>
@@ -222,13 +214,12 @@
         <span class="sec-kicker">Reporting</span>
         <span class="sec-tag">Tell us</span>
       </p>
-      <h2>If you find a signed build that shouldn't exist.</h2>
-      <p class="sec-sub">A signed installer that we didn't publish, a signature that
-      doesn't verify, a download mirror we've never heard of: mail
-      <a href="mailto:hello@cromis.org">hello@cromis.org</a> and say what you saw and where. We
-      will help investigate any misuse of a certificate that carries our name, and we would
-      rather hear about it awkwardly than not at all. Official builds come from the
-      <a href="https://github.com/izkac/alcove/releases">releases page</a> and nowhere else.</p>
+      <h2>Report a suspicious build or signature.</h2>
+      <p class="sec-sub">If you find an installer we didn't publish, a signature that fails
+      verification or an unofficial download mirror, email
+      <a href="mailto:hello@cromis.org">hello@cromis.org</a> with what you found and where.
+      We'll help investigate misuse of any certificate bearing our name. Official builds are
+      published only on the <a href="https://github.com/izkac/alcove/releases">releases page</a>.</p>
       <div class="actions">
         <a class="btn btn-primary" href="../#get">Get Alcove</a>
         <a class="btn" href="../">What Alcove is</a>
